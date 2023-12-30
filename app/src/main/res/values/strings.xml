@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Fitness</string>
+    <string name="imb_button">IMB CALCULATOR</string>
+    <string name="workout_button">WORKOUT</string>
 </resources>
