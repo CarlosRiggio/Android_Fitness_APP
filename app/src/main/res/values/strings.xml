@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">Fitness</string>
     <string name="imb_button">IMB CALCULATOR</string>
-    <string name="workout_button">WORKOUT</string>
+    <string name="workout_selection_button">WORKOUT SELECTION</string>
+    <string name="workout_maker_button">WORKOUT MAKER</string>
+    <string name="imb_data_button">YOUR IMB DATA</string>
+    <string name="target_weight_button">SET YOUR TARGET</string>
+    <string name="tips_button">FOOD/WORKOUT TIPS</string>
+    <string name="home_button">HOME</string>
+    <string name="graph_button">GRAPH</string>
+    <string name="further_button">FURTHER</string>
+    <string name="lift_lab_button">LIFT LAB</string>
+
 </resources>
