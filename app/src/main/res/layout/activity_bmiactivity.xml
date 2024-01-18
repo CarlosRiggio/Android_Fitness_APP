@@ -144,6 +144,20 @@
             android:textAlignment="center">
         </EditText>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Kg"
+            android:fontFamily="@font/raleway"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp">
+        </TextView>
+
 
     </RelativeLayout>
 
@@ -174,17 +188,21 @@
             android:layout_marginTop="15dp">
         </TextView>
 
-        <TextView
+        <EditText
+            android:id="@+id/current_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/current_age"
-            android:text="22"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            android:textStyle="bold"
             android:layout_centerInParent="true"
-            android:textAlignment="center">
-        </TextView>
+            android:hint="insert"
+            android:inputType="number"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="#fce1dc"
+            android:textSize="30sp"
+            android:textStyle="bold">
+
+        </EditText>
 
         <!--creating the minus icon-->
         <RelativeLayout

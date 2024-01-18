@@ -21,12 +21,12 @@ public class BMIActivity extends AppCompatActivity {
     RelativeLayout male, female;
 
     double weight = 55;
-    int age = 22;
+    int age;
     int currentprogress;
     String string_progress = "170";
     String typeofuser = "0";
     String string_weight = "55";
-    String string_age = "22";
+    String string_age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,9 +98,18 @@ public class BMIActivity extends AppCompatActivity {
         incrementage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                age ++;
-                string_age = String.valueOf(age);
-                currentage.setText(string_age);
+                try {
+                    string_age = currentage.getText().toString();
+                    age = Integer.parseInt(string_age);
+
+                    age ++;
+                    string_age = String.valueOf(age);
+                    currentage.setText(string_age);
+                }
+                catch (NumberFormatException exception)
+                {
+                    Toast.makeText(getApplicationContext(),"Insert all of the data",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -108,47 +117,62 @@ public class BMIActivity extends AppCompatActivity {
         decrementage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                age --;
-                string_age = String.valueOf(age);
-                currentage.setText(string_age);
+                try {
+                    string_age = currentage.getText().toString();
+                    age = Integer.parseInt(string_age);
+
+                    age --;
+                    string_age = String.valueOf(age);
+                    currentage.setText(string_age);
+                }
+                catch (NumberFormatException exception)
+                {
+                    Toast.makeText(getApplicationContext(),"Insert all of the data",Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
-
 
     }
 
     public void openBMIResult(View view){
 
-        // getting the weight
-        string_weight = currentweight.getText().toString();
-        weight = Double.parseDouble(string_weight);
 
-        if(typeofuser.equals("0"))
-        {
-            Toast.makeText(getApplicationContext(),"Select Your Gender First",Toast.LENGTH_SHORT).show();
-        }
-        else if(string_progress.equals("0"))
-        {
-            Toast.makeText(getApplicationContext(),"Select Your Height First",Toast.LENGTH_SHORT).show();
-        }
-        else if(age == 0 || age < 0)
-        {
-            Toast.makeText(getApplicationContext(),"Select a Valid Age",Toast.LENGTH_SHORT).show();
-        }
+        try {
+            // getting the weight
+            string_weight = currentweight.getText().toString();
+            weight = Double.parseDouble(string_weight);
+            if(typeofuser.equals("0"))
+            {
+                Toast.makeText(getApplicationContext(),"Select Your Gender First",Toast.LENGTH_SHORT).show();
+            }
+            else if(string_progress.equals("0"))
+            {
+                Toast.makeText(getApplicationContext(),"Select Your Height First",Toast.LENGTH_SHORT).show();
+            }
+            else if(age == 0 || age < 0)
+            {
+                Toast.makeText(getApplicationContext(),"Select a Valid Age",Toast.LENGTH_SHORT).show();
+            }
 
-        else if(weight == 0 || weight < 0)
-        {
-            Toast.makeText(getApplicationContext(),"Select a Valid Weight",Toast.LENGTH_SHORT).show();
+            else if(weight == 0 || weight < 0)
+            {
+                Toast.makeText(getApplicationContext(),"Select a Valid Weight",Toast.LENGTH_SHORT).show();
+            }
+            else {
+
+                Intent intent = new Intent(this, ResultBMIActivity.class);
+                intent.putExtra("gender", typeofuser);
+                intent.putExtra("string_height", string_progress);
+                intent.putExtra("string_weight", string_weight);
+                intent.putExtra("string_age", string_age);
+                startActivity(intent);
+
+            }
         }
-        else {
-
-            Intent intent = new Intent(this, ResultBMIActivity.class);
-            intent.putExtra("gender", typeofuser);
-            intent.putExtra("string_height", string_progress);
-            intent.putExtra("string_weight", string_weight);
-            intent.putExtra("string_age", string_age);
-            startActivity(intent);
-
+        catch (NumberFormatException exception)
+        {
+            Toast.makeText(getApplicationContext(),"Insert all of the data",Toast.LENGTH_SHORT).show();
         }
     }
 }
