@@ -5,17 +5,30 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+import java.util.List;
+import com.opencsv.CSVWriter;
+
+
+
 public class BMIActivity extends AppCompatActivity {
 
+    private List<Dati> datiList = new ArrayList<>();
     TextView currentheight, currentage, currentweight;
     ImageView incrementage, decrementage;
     SeekBar seekbarforheight;
@@ -204,7 +217,6 @@ public class BMIActivity extends AppCompatActivity {
     public void openBMIResult(View view){
 
         try {
-
             // getting the weight
             string_weight = currentweight.getText().toString();
             weight = Double.parseDouble(string_weight);
@@ -231,6 +243,24 @@ public class BMIActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Select a Valid Weight",Toast.LENGTH_SHORT).show();
             }
             else {
+                //Calcolo bmi pre
+                double height = (double) currentprogress / 100;
+                double bmi = weight / (height * height);
+                DecimalFormat df = new DecimalFormat("#.##");
+                String string_bmi = df.format(bmi);
+
+                //getting the data
+
+                LocalDate currentDate = LocalDate.now();
+
+                String date = currentDate.getDayOfMonth() + "-" + currentDate.getMonthValue() + "-" + currentDate.getYear();
+
+                //Scrittura dati su lista
+                datiList.add(new Dati(date, string_weight, string_bmi));
+
+                // Esegui AsyncTask per salvare i dati in un file CSV
+                new SalvaDatiAsyncTask().execute();
+                Toast.makeText(this, "Dati salvati con successo", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(this, ResultBMIActivity.class);
                 intent.putExtra("gender", typeofuser);
@@ -246,4 +276,41 @@ public class BMIActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Insert all of the data",Toast.LENGTH_SHORT).show();
         }
     }
+
+
+    private class SalvaDatiAsyncTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            salvaDatiInCSV();
+            return null;
+        }
+    }
+    private void salvaDatiInCSV() {
+        try {
+            File file = new File(getExternalFilesDir(null), "dati.csv");
+
+            // check if the file already exist
+            boolean isFileExist = file.exists();
+
+            // FileWriter opend in append mode
+            FileWriter fileWriter = new FileWriter(file, true);
+            CSVWriter csvWriter = new CSVWriter(fileWriter);
+
+            // Write intexation if file don't exist yet
+            if (!isFileExist) {
+                csvWriter.writeNext(new String[]{"Data", "Weight", "BMI"});
+            }
+
+            // Writing new data
+            for (Dati dati : datiList) {
+                csvWriter.writeNext(new String[]{dati.getData(), String.valueOf(dati.getPeso()), String.valueOf(dati.getBmi())});
+            }
+
+            // Close writer
+            csvWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
