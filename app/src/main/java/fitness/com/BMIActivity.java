@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -20,19 +21,27 @@ public class BMIActivity extends AppCompatActivity {
     SeekBar seekbarforheight;
     RelativeLayout male, female;
 
-    double weight = 55;
+    double weight;
     int age;
     int currentprogress;
     String string_progress = "170";
     String typeofuser = "0";
-    String string_weight = "55";
-    String string_age;
+    String string_weight;
+    String string_age = "";
+
+
+    // creo coppie chiave valore di dati da memorizzare
+    public static final String GenderState = "GenderKey";
+    public static final String HeightState = "HeightKey";
+    public static final String WeightState = "WeightKey";
+    public static final String AgeState = "AgeKey";
+    public static final String MyPREFERENCES = "MyPrefs";
+    SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmiactivity);
-
 
         // finding all of the view object by id
         currentheight = findViewById(R.id.current_height);
@@ -47,6 +56,40 @@ public class BMIActivity extends AppCompatActivity {
         male = findViewById(R.id.male);
         female = findViewById(R.id.female);
 
+        // loading the seek bar progress
+        seekbarforheight.setMax(300);
+
+        // creating sharedpreferences object
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
+
+        // checking if there are any preferences
+        typeofuser = sharedpreferences.getString(GenderState, "0");
+        if(typeofuser.equals("Male"))
+        {
+            male.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.malefemalefocus));
+            female.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.malefemalenotfocus));
+        }
+        else if(typeofuser.equals("Female"))
+        {
+            female.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.malefemalefocus));
+            male.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.malefemalenotfocus));
+        }
+
+        // checking if there are any preferences
+        string_progress = sharedpreferences.getString(HeightState, "170");
+        seekbarforheight.setProgress(Integer.parseInt(string_progress));
+        currentheight.setText(string_progress);
+
+        // checking if there are any preferences
+        string_age = sharedpreferences.getString(AgeState, null);
+        currentage.setText(string_age);
+
+
+        // checking if there are any preferences
+        string_weight = sharedpreferences.getString(WeightState, null);
+        currentweight.setText(string_weight);
+
+
         // clicking male button
         male.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +97,11 @@ public class BMIActivity extends AppCompatActivity {
                 male.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.malefemalefocus));
                 female.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.malefemalenotfocus));
                 typeofuser="Male";
+
+                // creting editor interface to modify preferences
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putString(GenderState, typeofuser);
+                editor.apply();
 
             }
         });
@@ -65,12 +113,15 @@ public class BMIActivity extends AppCompatActivity {
                 female.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.malefemalefocus));
                 male.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.malefemalenotfocus));
                 typeofuser="Female";
+
+                // creting editor interface to modify preferences
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putString(GenderState, typeofuser);
+                editor.apply();
             }
         });
 
-        // loading the seek bar progress
-        seekbarforheight.setMax(300);
-        seekbarforheight.setProgress(170);
+        // seekbar is changing
         seekbarforheight.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -78,6 +129,11 @@ public class BMIActivity extends AppCompatActivity {
                 currentprogress = progress;
                 string_progress = String.valueOf(currentprogress);
                 currentheight.setText(string_progress);
+
+                // creting editor interface to modify preferences
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putString(HeightState, string_progress);
+                editor.apply();
 
             }
 
@@ -105,6 +161,11 @@ public class BMIActivity extends AppCompatActivity {
                     age ++;
                     string_age = String.valueOf(age);
                     currentage.setText(string_age);
+
+                    // creting editor interface to modify preferences
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.putString(AgeState, string_age);
+                    editor.apply();
                 }
                 catch (NumberFormatException exception)
                 {
@@ -124,6 +185,11 @@ public class BMIActivity extends AppCompatActivity {
                     age --;
                     string_age = String.valueOf(age);
                     currentage.setText(string_age);
+
+                    // creting editor interface to modify preferences
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.putString(AgeState, string_age);
+                    editor.apply();
                 }
                 catch (NumberFormatException exception)
                 {
@@ -137,11 +203,16 @@ public class BMIActivity extends AppCompatActivity {
 
     public void openBMIResult(View view){
 
-
         try {
+
             // getting the weight
             string_weight = currentweight.getText().toString();
             weight = Double.parseDouble(string_weight);
+            // creting editor interface to modify preferences
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putString(WeightState, string_weight);
+            editor.apply();
+
             if(typeofuser.equals("0"))
             {
                 Toast.makeText(getApplicationContext(),"Select Your Gender First",Toast.LENGTH_SHORT).show();

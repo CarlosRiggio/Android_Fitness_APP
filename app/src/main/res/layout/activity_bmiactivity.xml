@@ -129,19 +129,19 @@
         </TextView>
 
         <EditText
+            android:id="@+id/current_weight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/current_weight"
-            android:autofillHints=""
-            android:text="0"
-            android:hint="insert"
-            android:textColorHint="#fce1dc"
-            android:inputType="numberDecimal"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            android:textStyle="bold"
             android:layout_centerInParent="true"
-            android:textAlignment="center">
+            android:autofillHints=""
+            android:hint="insert"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="#fce1dc"
+            android:textSize="30sp"
+            android:textStyle="bold">
+
         </EditText>
 
         <TextView
@@ -195,7 +195,6 @@
             android:layout_centerInParent="true"
             android:hint="insert"
             android:inputType="number"
-            android:text="0"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="#FCE1DC"
