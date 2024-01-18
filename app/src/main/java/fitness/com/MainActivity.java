@@ -14,8 +14,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void openIMBCalculator(View view){
-        Intent intent = new Intent(this, BMIActivity.class);
+    public void openBMICalculator(View view){
+        Intent intent = new Intent(this, SplashBMIActivity.class);
         startActivity(intent);
     }
 }

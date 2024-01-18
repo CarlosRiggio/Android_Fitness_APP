@@ -39,7 +39,9 @@
             android:layout_above="@+id/text_male"
             android:layout_centerInParent="true"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/male"></ImageView>
+            android:src="@drawable/male">
+
+        </ImageView>
         
         <TextView
             android:layout_width="match_parent"
@@ -49,6 +51,7 @@
             android:textColor="@color/white"
             android:id="@+id/text_male"
             android:text="Male"
+            android:fontFamily="@font/raleway"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="10dp"
             android:textAlignment="center">
@@ -76,7 +79,9 @@
             android:layout_above="@+id/text_female"
             android:layout_centerInParent="true"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/female"></ImageView>
+            android:src="@drawable/female">
+
+        </ImageView>
 
         <TextView
             android:layout_width="match_parent"
@@ -86,6 +91,7 @@
             android:textColor="@color/white"
             android:id="@+id/text_female"
             android:text="Female"
+            android:fontFamily="@font/raleway"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="10dp"
             android:textAlignment="center">
@@ -114,6 +120,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:text="Weight"
+            android:fontFamily="@font/raleway"
             android:id="@+id/text_weight"
             android:textAlignment="center"
             android:textStyle="bold"
@@ -121,58 +128,22 @@
             android:layout_marginTop="15dp">
         </TextView>
 
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/current_weight"
-            android:text="55"
+            android:autofillHints=""
+            android:text="0"
+            android:hint="insert"
+            android:textColorHint="#fce1dc"
+            android:inputType="numberDecimal"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_centerInParent="true"
             android:textAlignment="center">
-        </TextView>
+        </EditText>
 
-        <!--creating the minus icon-->
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/plusminus"
-            android:layout_marginBottom="10dp">
-
-            
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/minus"
-                android:id="@+id/decrement_weight">
-
-            </ImageView>
-
-        </RelativeLayout>
-
-        <!--creating the plus icon-->
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="20dp"
-            android:layout_alignParentEnd="true"
-            android:background="@drawable/plusminus"
-            android:layout_marginBottom="10dp">
-
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/add"
-                android:id="@+id/increment_weight">
-
-            </ImageView>
-
-        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -195,6 +166,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:text="Age"
+            android:fontFamily="@font/raleway"
             android:id="@+id/text_age"
             android:textAlignment="center"
             android:textStyle="bold"
@@ -257,23 +229,6 @@
 
     </RelativeLayout>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!--Creating the seek bar-->
     <RelativeLayout
         android:layout_width="340dp"
@@ -297,16 +252,16 @@
             android:layout_marginTop="15dp"/>
 
         <TextView
+            android:id="@+id/current_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100"
-            android:layout_marginBottom="50dp"
-            android:textSize="40sp"
             android:layout_alignParentBottom="true"
-            android:textColor="@color/white"
-            android:textStyle="bold"
             android:layout_centerInParent="true"
-            android:id="@+id/current_height"/>
+            android:layout_marginBottom="50dp"
+            android:text="170"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -349,12 +304,10 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/buttonbackground"
         android:textStyle="bold"
+        android:onClick="openBMIResult"
         >
 
     </android.widget.Button>
-
-
-
 
 
 
