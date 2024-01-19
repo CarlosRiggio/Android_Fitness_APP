@@ -211,7 +211,6 @@ public class BMIActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedpreferences.edit();
                     editor.putString(AgeState, string_age);
                     editor.apply();
-                    System.out.println(age);
                 }
                 catch (NumberFormatException exception) // age missing
                 {
