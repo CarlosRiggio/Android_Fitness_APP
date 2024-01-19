@@ -5,6 +5,7 @@ import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -185,6 +186,20 @@ public class ResultBMIActivity extends AppCompatActivity {
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
             }
         }
+
+
+        Drawable[] layers = new Drawable[2];
+        layers[0] = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_drawable, null);
+        layers[1] = progressDrawable;
+        LayerDrawable layerDrawable = new LayerDrawable(layers);
+        bmiSeekBar.setProgressDrawable(layerDrawable);
+
+        Drawable[] layersThumb = new Drawable[2];
+        layersThumb[0] = ResourcesCompat.getDrawable(getResources(), R.drawable.thumb_red, null);
+        layersThumb[1] = ResourcesCompat.getDrawable(getResources(), R.drawable.thumb_red, null);
+        LayerDrawable layerDrawableThumb = new LayerDrawable(layersThumb);
+        bmiSeekBar.setThumb(layerDrawableThumb);
+
 
         bmiSeekBar = findViewById(R.id.bmiSeekBar);
         bmiSeekBar.setEnabled(false);

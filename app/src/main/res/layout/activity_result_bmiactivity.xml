@@ -99,8 +99,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:max="40"
-        android:progressDrawable="@drawable/progress_drawable"
-        android:thumbTint="@color/black">
+        android:thumb="@drawable/thumb_red">
 
     </SeekBar>
 
