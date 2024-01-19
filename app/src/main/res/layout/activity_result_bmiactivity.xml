@@ -142,7 +142,7 @@
             android:layout_centerHorizontal="true"
             android:text="Select which workout plan you want to do"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="19sp"
             android:textStyle="bold">
 
         </TextView>
@@ -186,11 +186,24 @@
 
         </RadioGroup>
 
+        <TextView
+            android:id="@+id/suggestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/choicedisplay"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="5dp"
+            android:text="fdsfdsfdsfds"
+            android:textAlignment="center"
+            android:textColor="@color/green"
+            android:textSize="16sp" />
+
         <Button
             android:id="@+id/calculate_workout_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/choicedisplay"
+            android:layout_below="@id/suggestion"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="5dp"

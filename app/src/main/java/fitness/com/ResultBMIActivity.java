@@ -5,10 +5,8 @@ import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -18,7 +16,7 @@ import android.widget.Toast;
 
 public class ResultBMIActivity extends AppCompatActivity {
 
-    TextView bmi_display, bmi_category, gender_display;
+    TextView bmi_display, bmi_category, gender_display, suggestion_display;
     Intent intent;
     ImageView imageView;
     String string_bmi;
@@ -43,6 +41,7 @@ public class ResultBMIActivity extends AppCompatActivity {
         bmi_category = findViewById(R.id.bmicategorydispaly);
         gender_display = findViewById(R.id.genderdisplay);
         background = findViewById(R.id.contentlayout);
+        suggestion_display = findViewById(R.id.suggestion);
         rdgroup = findViewById(R.id.radio_group);
         rdgroup.clearCheck();
 
@@ -54,9 +53,7 @@ public class ResultBMIActivity extends AppCompatActivity {
 
         plottingBmiScoreForMaleFemale(gender, bmi, string_bmi);
 
-        radio_id = rdgroup.getCheckedRadioButtonId();
-
-        chosingWorkout(bmi, gender, radio_id);
+        suggestion();
 
     }
 
@@ -221,69 +218,46 @@ public class ResultBMIActivity extends AppCompatActivity {
     }
 
     public void openWorkoutSelectionPage(View view){
-        Intent intent = new Intent(this, WorkoutSelActivity.class);
 
-        // passing all of the info in order to correctly select the workout plan
-        intent.putExtra("age", age);
-        intent.putExtra("radio_id", radio_id);
+        rdgroup = findViewById(R.id.radio_group);
 
-        startActivity(intent);
-    }
 
-    public void chosingWorkout(double bmi, String gender, int radio_id) {
-
-        if (radio_id == R.id.radio_bulk)
+        if(rdgroup.getCheckedRadioButtonId() != R.id.radio_bulk && rdgroup.getCheckedRadioButtonId() != R.id.radio_maintenance && rdgroup.getCheckedRadioButtonId() != R.id.radio_weightloss)
         {
-            if (gender.equals("Male") && bmi > 25 && bmi < 30.1 || gender.equals("Female") && bmi > 23.8 && bmi < 28.7)
-            {
-                Toast.makeText(this, "I suggest you to cut or Maintain", Toast.LENGTH_SHORT).show();
-            }
-            else if (gender.equals("Male") && bmi > 30.1 || gender.equals("Female") && bmi > 28.7)
-            {
-                Toast.makeText(this, "I suggest you to cut", Toast.LENGTH_SHORT).show();
-            }
-            else
-            {
-                Toast.makeText(this, "Right choice", Toast.LENGTH_SHORT).show();
-            }
-        }
-        else if (radio_id == R.id.radio_maintenance)
-        {
-            if (gender.equals("Male") && bmi < 20.1 || gender.equals("Female") && bmi < 18.7)
-            {
-                Toast.makeText(this, "I suggest you to Bulk", Toast.LENGTH_SHORT).show();
-            }
-            else if (gender.equals("Male") && bmi > 30.1 || gender.equals("Female") && bmi > 28.7)
-            {
-                Toast.makeText(this, "I suggest you to cut", Toast.LENGTH_SHORT).show();
-            }
-            else if (gender.equals("Male") && bmi > 25 && bmi < 30.1 || gender.equals("Female") && bmi > 23.8 && bmi < 28.7)
-            {
-                Toast.makeText(this, "I suggest you to cut or Maintain", Toast.LENGTH_SHORT).show();
-            }
-            else
-            {
-                Toast.makeText(this, "Right choice", Toast.LENGTH_SHORT).show();
-            }
+            Toast.makeText(this, "Select a workout plan", Toast.LENGTH_SHORT).show();
         }
         else
         {
-            if (gender.equals("Male") && bmi < 20.1 || gender.equals("Female") && bmi < 18.7)
-            {
-                Toast.makeText(this, "I suggest you to Bulk", Toast.LENGTH_SHORT).show();
-            }
-            else if (gender.equals("Male") && bmi > 30.1 || gender.equals("Female") && bmi > 28.7)
-            {
-                Toast.makeText(this, "Right choice", Toast.LENGTH_SHORT).show();
-            }
-            else if (gender.equals("Male") && bmi > 25 && bmi < 30.1 || gender.equals("Female") && bmi > 23.8 && bmi < 28.7)
-            {
-                Toast.makeText(this, "I suggest you to cut or Maintain", Toast.LENGTH_SHORT).show();
-            }
-            else
-            {
-                Toast.makeText(this, "I suggest you to maintain", Toast.LENGTH_SHORT).show();
-            }
+            Intent intent = new Intent(this, WorkoutSelActivity.class);
+            radio_id = rdgroup.getCheckedRadioButtonId();
+
+            // passing all of the info in order to correctly select the workout plan
+            intent.putExtra("age", age);
+            intent.putExtra("radio_id", radio_id);
+
+            startActivity(intent);
+        }
+
+    }
+
+    public void suggestion(){
+        bmi_category = findViewById(R.id.bmicategorydispaly);
+        String category = bmi_category.getText().toString();
+
+        suggestion_display = findViewById(R.id.suggestion);
+
+        if (category.equals("Severe Thinness") || category.equals("Moderate Thinness") || category.equals("Mild Thinness") || category.equals("Underweight"))
+        {
+            suggestion_display.setText("I suggest you to bulk");
+        }
+        else if (category.equals("Normal"))
+        {
+            suggestion_display.setText("I suggest you to maintain");
+        }
+        else
+        {
+            suggestion_display.setText("I suggest you to cut");
         }
     }
+
 }
