@@ -49,7 +49,9 @@ public class BMIActivity extends AppCompatActivity {
     public static final String HeightState = "HeightKey";
     public static final String WeightState = "WeightKey";
     public static final String AgeState = "AgeKey";
+    public static final String BmiState = "BmiKey";
     public static final String MyPREFERENCES = "MyPrefs";
+
     // creating sharedpreferences object
     SharedPreferences sharedpreferences;
 
@@ -273,6 +275,8 @@ public class BMIActivity extends AppCompatActivity {
                 // rounding to 2 decimal points
                 DecimalFormat df = new DecimalFormat("#.##");
                 String string_bmi = df.format(bmi);
+                editor.putString("BmiKey", string_bmi);
+                editor.apply();
 
                 // getting the local date
                 LocalDate currentDate = LocalDate.now();
@@ -287,7 +291,6 @@ public class BMIActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(this, ResultBMIActivity.class);
                 intent.putExtra("gender", typeofuser);
-                intent.putExtra("bmi", bmi);
                 intent.putExtra("string_bmi", string_bmi);
                 intent.putExtra("age", age);
                 startActivity(intent);

@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
@@ -45,13 +46,14 @@ public class ResultBMIActivity extends AppCompatActivity {
         rdgroup = findViewById(R.id.radio_group);
         rdgroup.clearCheck();
 
-        bmi = intent.getDoubleExtra("bmi", -999);
         string_bmi = intent.getStringExtra("string_bmi");
+        bmi = Double.parseDouble(string_bmi);
         gender = intent.getStringExtra("gender");
         age = intent.getIntExtra("age", -999);
 
 
         plottingBmiScoreForMaleFemale(gender, bmi, string_bmi);
+        plottingRadioChanges();
 
         suggestion();
 
@@ -208,6 +210,43 @@ public class ResultBMIActivity extends AppCompatActivity {
 
         gender_display.setText(gender);
         bmi_display.setText(string_bmi);
+    }
+
+    public void plottingRadioChanges(){
+
+        rdgroup = findViewById(R.id.radio_group);
+        rdgroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton radioButton = findViewById(checkedId);
+                TextView sugg = findViewById(R.id.suggestion);
+                String testo = sugg.getText().toString();
+
+                if(radioButton.getId() == R.id.radio_bulk)
+                {
+                    if(testo.equals("I suggest you to bulk"))
+                        Toast.makeText(getApplicationContext(),"Right choice",Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(getApplicationContext(),testo,Toast.LENGTH_SHORT).show();
+                }
+                else if(radioButton.getId() == R.id.radio_maintenance)
+                {
+                    if(testo.equals("I suggest you to maintain"))
+                        Toast.makeText(getApplicationContext(),"Right choice",Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(getApplicationContext(),testo,Toast.LENGTH_SHORT).show();
+                }
+                else if (radioButton.getId() == R.id.radio_weightloss)
+                {
+                    if(testo.equals("I suggest you to cut"))
+                        Toast.makeText(getApplicationContext(),"Right choice",Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(getApplicationContext(),testo,Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
     }
 
     public void openBMICalculator(View view){
