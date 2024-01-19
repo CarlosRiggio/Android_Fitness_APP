@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openBMICalculator(View view){
+        // intent go to splash activity that last 1.5s just to show up
         Intent intent = new Intent(this, SplashBMIActivity.class);
         startActivity(intent);
     }

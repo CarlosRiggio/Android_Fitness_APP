@@ -7,21 +7,21 @@
     android:background="#1E1D1D"
     tools:context=".BMIActivity">
 
-    <!--creating horizontal line-->
+    <!--Creating horizontal line-->
     <RelativeLayout
         android:id="@+id/center_horizontal_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"/>
 
-    <!--creating vertical line-->
+    <!--Creating vertical line-->
     <RelativeLayout
         android:id="@+id/center_vertical_line"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"/>
 
-    <!--creating male selection-->
+    <!--Male selection-->
     <RelativeLayout
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -33,6 +33,7 @@
         android:layout_marginRight="20dp"
         android:id="@+id/male">
 
+        <!--Male icon-->
         <ImageView
             android:layout_width="170px"
             android:layout_height="170px"
@@ -42,7 +43,8 @@
             android:src="@drawable/male">
 
         </ImageView>
-        
+
+        <!--Male title-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,7 +63,7 @@
     </RelativeLayout>
 
 
-    <!--creating female selection-->
+    <!--Female selection-->
     <RelativeLayout
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -73,6 +75,7 @@
         android:layout_marginRight="20dp"
         android:id="@+id/female">
 
+        <!--Female icon-->
         <ImageView
             android:layout_width="170px"
             android:layout_height="170px"
@@ -83,6 +86,7 @@
 
         </ImageView>
 
+        <!--Female title-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -101,7 +105,7 @@
     </RelativeLayout>
 
 
-    <!--creating the weight selection-->
+    <!--Weight edit text-->
     <RelativeLayout
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -114,7 +118,7 @@
         android:layout_marginRight="20dp"
         android:id="@+id/weight">
 
-
+        <!--Weight title-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -128,6 +132,7 @@
             android:layout_marginTop="15dp">
         </TextView>
 
+        <!--Weight edit text-->
         <EditText
             android:id="@+id/current_weight"
             android:layout_width="match_parent"
@@ -144,6 +149,7 @@
 
         </EditText>
 
+        <!--Kg label-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -161,7 +167,7 @@
 
     </RelativeLayout>
 
-    <!--creating the age selection-->
+    <!--Creating the age selection-->
     <RelativeLayout
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -174,7 +180,7 @@
         android:layout_marginRight="20dp"
         android:id="@+id/age">
 
-
+        <!--Age title-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -188,6 +194,7 @@
             android:layout_marginTop="15dp">
         </TextView>
 
+        <!--Age insertion-->
         <EditText
             android:id="@+id/current_age"
             android:layout_width="match_parent"
@@ -203,7 +210,7 @@
 
         </EditText>
 
-        <!--creating the minus icon-->
+        <!--Minus icon-->
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -223,7 +230,7 @@
 
         </RelativeLayout>
 
-        <!--creating the plus icon-->
+        <!--Plus icon-->
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -246,7 +253,7 @@
 
     </RelativeLayout>
 
-    <!--Creating the seek bar-->
+    <!--Creating the seek bar widget for height-->
     <RelativeLayout
         android:layout_width="340dp"
         android:layout_height="150dp"
@@ -257,7 +264,8 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/cardbackground"
         android:id="@+id/height_layout">
-        
+
+        <!--Height title-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -268,6 +276,7 @@
             android:textStyle="bold"
             android:layout_marginTop="15dp"/>
 
+        <!--Current height value-->
         <TextView
             android:id="@+id/current_height"
             android:layout_width="wrap_content"
@@ -280,6 +289,7 @@
             android:textSize="40sp"
             android:textStyle="bold" />
 
+        <!--Cm label-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -290,7 +300,8 @@
             android:layout_marginStart="20dp"
             android:layout_centerInParent="true"
             android:textColor="@color/white" />
-    
+
+        <!--SeekBar created-->
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
