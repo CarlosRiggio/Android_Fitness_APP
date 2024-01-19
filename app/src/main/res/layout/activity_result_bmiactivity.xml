@@ -98,11 +98,33 @@
         android:layout_marginTop="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:progressDrawable="@drawable/progress_drawable"
         android:max="40"
         android:thumb="@drawable/thumb_red">
 
     </SeekBar>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:layout_below="@id/bmiSeekBar"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/white"
+        android:textSize="20sp">
 
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="40"
+        android:layout_below="@id/bmiSeekBar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/white"
+        android:textSize="20sp">
+
+    </TextView>
 
 </RelativeLayout>

@@ -5,6 +5,7 @@
     <color name="custom_blue">#0C91E0</color>
     <color name="halfwarn">#483FC8</color>
     <color name="warn">#FF1313</color>
+    <color name="progress_red">#e32222</color>
 
 
 </resources>

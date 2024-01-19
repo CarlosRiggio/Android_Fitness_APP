@@ -1,3 +1,4 @@
+<!-- progress_drawable.xml -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Background color -->
     <item>
@@ -8,7 +9,14 @@
     </item>
 
     <!-- Progress color -->
-    <item android:id="@+id/progress_drawable">
+    <item android:id="@android:id/background">
+        <clip>
+            <shape>
+                <solid android:color="#E0E0E0"/>
+            </shape>
+        </clip>
+    </item>
+    <item android:id="@android:id/progress">
         <clip>
             <shape>
                 <solid android:color="#FFCC00"/> <!-- Cambia colore come necessario -->

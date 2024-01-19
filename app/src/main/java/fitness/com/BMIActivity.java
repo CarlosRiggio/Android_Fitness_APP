@@ -184,6 +184,7 @@ public class BMIActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedpreferences.edit();
                     editor.putString(AgeState, string_age);
                     editor.apply();
+                    System.out.println(age);
                 }
                 catch (NumberFormatException exception) // age missing
                 {
@@ -208,6 +209,7 @@ public class BMIActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedpreferences.edit();
                     editor.putString(AgeState, string_age);
                     editor.apply();
+                    System.out.println(age);
                 }
                 catch (NumberFormatException exception) // age missing
                 {
@@ -230,6 +232,22 @@ public class BMIActivity extends AppCompatActivity {
             editor.putString(WeightState, string_weight);
             editor.apply();
 
+            // getting the age
+            string_age = currentage.getText().toString();
+            age = Integer.parseInt(string_age);
+            // creating editor interface to modify preferences
+            editor.putString(AgeState, string_age);
+            editor.apply();
+
+            // getting the height
+            currentprogress = seekbarforheight.getProgress();
+            string_progress = String.valueOf(currentprogress);
+            // creating editor interface to modify preferences
+            editor.putString(HeightState, string_progress);
+            editor.apply();
+
+
+
             if(typeofuser.equals("0")) // no gender selected
             {
                 Toast.makeText(getApplicationContext(),"Select Your Gender First",Toast.LENGTH_SHORT).show();
@@ -240,6 +258,7 @@ public class BMIActivity extends AppCompatActivity {
             }
             else if(age == 0 || age < 0) // invalid age selected
             {
+                System.out.println(age);
                 Toast.makeText(getApplicationContext(),"Select a Valid Age",Toast.LENGTH_SHORT).show();
             }
 
