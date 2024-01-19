@@ -8,10 +8,13 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ResultBMIActivity extends AppCompatActivity {
 
@@ -20,10 +23,13 @@ public class ResultBMIActivity extends AppCompatActivity {
     ImageView imageView;
     String string_bmi;
     double bmi;
+    int age;
     String gender;
     RelativeLayout background;
-
     SeekBar bmiSeekBar;
+    RadioGroup rdgroup;
+    int radio_id;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +43,20 @@ public class ResultBMIActivity extends AppCompatActivity {
         bmi_category = findViewById(R.id.bmicategorydispaly);
         gender_display = findViewById(R.id.genderdisplay);
         background = findViewById(R.id.contentlayout);
+        rdgroup = findViewById(R.id.radio_group);
+        rdgroup.clearCheck();
 
         bmi = intent.getDoubleExtra("bmi", -999);
         string_bmi = intent.getStringExtra("string_bmi");
         gender = intent.getStringExtra("gender");
+        age = intent.getIntExtra("age", -999);
 
 
         plottingBmiScoreForMaleFemale(gender, bmi, string_bmi);
+
+        radio_id = rdgroup.getCheckedRadioButtonId();
+
+        chosingWorkout(bmi, gender, radio_id);
 
     }
 
@@ -198,7 +211,6 @@ public class ResultBMIActivity extends AppCompatActivity {
 
         gender_display.setText(gender);
         bmi_display.setText(string_bmi);
-
     }
 
     public void openBMICalculator(View view){
@@ -206,5 +218,72 @@ public class ResultBMIActivity extends AppCompatActivity {
 
         startActivity(intent);
         finish();
+    }
+
+    public void openWorkoutSelectionPage(View view){
+        Intent intent = new Intent(this, WorkoutSelActivity.class);
+
+        // passing all of the info in order to correctly select the workout plan
+        intent.putExtra("age", age);
+        intent.putExtra("radio_id", radio_id);
+
+        startActivity(intent);
+    }
+
+    public void chosingWorkout(double bmi, String gender, int radio_id) {
+
+        if (radio_id == R.id.radio_bulk)
+        {
+            if (gender.equals("Male") && bmi > 25 && bmi < 30.1 || gender.equals("Female") && bmi > 23.8 && bmi < 28.7)
+            {
+                Toast.makeText(this, "I suggest you to cut or Maintain", Toast.LENGTH_SHORT).show();
+            }
+            else if (gender.equals("Male") && bmi > 30.1 || gender.equals("Female") && bmi > 28.7)
+            {
+                Toast.makeText(this, "I suggest you to cut", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(this, "Right choice", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else if (radio_id == R.id.radio_maintenance)
+        {
+            if (gender.equals("Male") && bmi < 20.1 || gender.equals("Female") && bmi < 18.7)
+            {
+                Toast.makeText(this, "I suggest you to Bulk", Toast.LENGTH_SHORT).show();
+            }
+            else if (gender.equals("Male") && bmi > 30.1 || gender.equals("Female") && bmi > 28.7)
+            {
+                Toast.makeText(this, "I suggest you to cut", Toast.LENGTH_SHORT).show();
+            }
+            else if (gender.equals("Male") && bmi > 25 && bmi < 30.1 || gender.equals("Female") && bmi > 23.8 && bmi < 28.7)
+            {
+                Toast.makeText(this, "I suggest you to cut or Maintain", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(this, "Right choice", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else
+        {
+            if (gender.equals("Male") && bmi < 20.1 || gender.equals("Female") && bmi < 18.7)
+            {
+                Toast.makeText(this, "I suggest you to Bulk", Toast.LENGTH_SHORT).show();
+            }
+            else if (gender.equals("Male") && bmi > 30.1 || gender.equals("Female") && bmi > 28.7)
+            {
+                Toast.makeText(this, "Right choice", Toast.LENGTH_SHORT).show();
+            }
+            else if (gender.equals("Male") && bmi > 25 && bmi < 30.1 || gender.equals("Female") && bmi > 23.8 && bmi < 28.7)
+            {
+                Toast.makeText(this, "I suggest you to cut or Maintain", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(this, "I suggest you to maintain", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

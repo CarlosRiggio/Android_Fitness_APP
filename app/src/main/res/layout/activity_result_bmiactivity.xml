@@ -12,19 +12,19 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:id="@+id/image_view"
-        android:layout_above="@id/contentlayout"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/ok">
 
     </ImageView>
 
-
     <RelativeLayout
         android:id="@+id/contentlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/image_view"
         android:layout_centerInParent="true"
+        android:layout_marginTop="5dp"
         android:background="@drawable/cardbackground"
         android:padding="20dp">
 
@@ -69,14 +69,12 @@
 
     </RelativeLayout>
 
-
-
     <android.widget.Button
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/gotomain"
         android:layout_below="@id/contentlayout"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/buttonbackground"
         android:text="RECALCULATE YOUR BMI"
         android:textSize="15sp"
@@ -95,7 +93,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/gotomain"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:progressDrawable="@drawable/progress_drawable"
@@ -109,7 +107,7 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:layout_below="@id/bmiSeekBar"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:textColor="@color/white"
         android:textSize="20sp">
 
@@ -121,10 +119,85 @@
         android:text="40"
         android:layout_below="@id/bmiSeekBar"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
         android:textColor="@color/white"
         android:textSize="20sp">
 
     </TextView>
+
+    <RelativeLayout
+        android:id="@+id/choice_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bmiSeekBar"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/cardbackground"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/choicedisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Select which workout plan you want to do"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/choicedisplay"
+            android:layout_marginTop="10dp">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/radio_bulk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Bulk"
+                android:textColor="@color/white">
+
+            </androidx.appcompat.widget.AppCompatRadioButton>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/radio_maintenance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Maintenance"
+                android:textColor="@color/white">
+
+            </androidx.appcompat.widget.AppCompatRadioButton>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/radio_weightloss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cut"
+                android:textColor="@color/white">
+
+            </androidx.appcompat.widget.AppCompatRadioButton>
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/calculate_workout_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/choicedisplay"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="5dp"
+            android:onClick="openWorkoutSelectionPage"
+            android:text="Calculate Workout"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

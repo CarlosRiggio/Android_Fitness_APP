@@ -289,6 +289,7 @@ public class BMIActivity extends AppCompatActivity {
                 intent.putExtra("gender", typeofuser);
                 intent.putExtra("bmi", bmi);
                 intent.putExtra("string_bmi", string_bmi);
+                intent.putExtra("age", age);
                 startActivity(intent);
 
             }
