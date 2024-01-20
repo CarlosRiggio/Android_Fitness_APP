@@ -274,7 +274,7 @@ public class BMIActivity extends AppCompatActivity {
                 // rounding to 2 decimal points
                 DecimalFormat df = new DecimalFormat("#.##");
                 String string_bmi = df.format(bmi);
-                editor.putString("BmiKey", string_bmi);
+                editor.putString(BmiState, string_bmi);
                 editor.apply();
 
                 // getting the local date

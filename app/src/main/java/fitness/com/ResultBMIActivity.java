@@ -27,7 +27,7 @@ public class ResultBMIActivity extends AppCompatActivity {
     RelativeLayout background;
     SeekBar bmiSeekBar;
     RadioGroup rdgroup;
-    int radio_id;
+    int radio_sel_id;
 
 
     @Override
@@ -237,7 +237,7 @@ public class ResultBMIActivity extends AppCompatActivity {
                     else
                         Toast.makeText(getApplicationContext(),testo,Toast.LENGTH_SHORT).show();
                 }
-                else if (radioButton.getId() == R.id.radio_weightloss)
+                else if (radioButton.getId() == R.id.radio_cut)
                 {
                     if(testo.equals("I suggest you to cut"))
                         Toast.makeText(getApplicationContext(),"Right choice",Toast.LENGTH_SHORT).show();
@@ -262,18 +262,21 @@ public class ResultBMIActivity extends AppCompatActivity {
         rdgroup = findViewById(R.id.radio_group);
 
 
-        if(rdgroup.getCheckedRadioButtonId() != R.id.radio_bulk && rdgroup.getCheckedRadioButtonId() != R.id.radio_maintenance && rdgroup.getCheckedRadioButtonId() != R.id.radio_weightloss)
+        if(rdgroup.getCheckedRadioButtonId() != R.id.radio_bulk && rdgroup.getCheckedRadioButtonId() != R.id.radio_maintenance && rdgroup.getCheckedRadioButtonId() != R.id.radio_cut)
         {
             Toast.makeText(this, "Select a workout plan", Toast.LENGTH_SHORT).show();
         }
         else
         {
             Intent intent = new Intent(this, WorkoutSelActivity.class);
-            radio_id = rdgroup.getCheckedRadioButtonId();
+            radio_sel_id = rdgroup.getCheckedRadioButtonId();
 
             // passing all of the info in order to correctly select the workout plan
             intent.putExtra("age", age);
-            intent.putExtra("radio_id", radio_id);
+            intent.putExtra("radio_id", radio_sel_id);
+            intent.putExtra("bulk_id", R.id.radio_bulk);
+            intent.putExtra("maint_id", R.id.radio_maintenance);
+            intent.putExtra("cut_id", R.id.radio_cut);
 
             startActivity(intent);
         }
