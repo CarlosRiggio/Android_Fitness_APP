@@ -137,7 +137,7 @@ public class ResultBMIActivity extends AppCompatActivity {
             if(bmi < 16)
             {
                 bmi_category.setText("Severe Thinness");
-                background.setBackgroundColor(getColor(R.color.warn));
+                background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.warn_background, null));
                 imageView.setImageResource(R.drawable.crosss);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
 
@@ -145,7 +145,7 @@ public class ResultBMIActivity extends AppCompatActivity {
             else if(bmi < 16.9 && bmi > 16)
             {
                 bmi_category.setText("Moderate Thinness");
-                background.setBackgroundColor(getColor(R.color.halfwarn));
+                background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
 
@@ -153,48 +153,49 @@ public class ResultBMIActivity extends AppCompatActivity {
             else if(bmi < 17.9 && bmi > 17)
             {
                 bmi_category.setText("Mild Thinness");
-                background.setBackgroundColor(getColor(R.color.halfwarn));
+                background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
             }
             else if(bmi < 18.7 && bmi > 17.9)
             {
                 bmi_category.setText("Underweight");
-                background.setBackgroundColor(getColor(R.color.halfwarn));
+                background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_yellow, null);
             }
             else if(bmi < 23.8 && bmi > 18.7)
             {
                 bmi_category.setText("Normal");
+                background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.ok_background, null));
                 imageView.setImageResource(R.drawable.ok);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_green, null);
             }
             else if(bmi < 28.6 && bmi > 23.8)
             {
                 bmi_category.setText("Overweight");
-                background.setBackgroundColor(getColor(R.color.halfwarn));
+                background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_yellow, null);
             }
             else if(bmi < 35 && bmi > 28.6)
             {
                 bmi_category.setText("Obese Class I");
-                background.setBackgroundColor(getColor(R.color.halfwarn));
+                background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_yellow, null);
             }
             else if (bmi < 40 && bmi > 35)
             {
                 bmi_category.setText("Obese Class II");
-                background.setBackgroundColor(getColor(R.color.warn));
+                background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.warn_background, null));
                 imageView.setImageResource(R.drawable.crosss);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
             }
             else
             {
                 bmi_category.setText("Obese Class III");
-                background.setBackgroundColor(getColor(R.color.warn));
+                background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.warn_background, null));
                 imageView.setImageResource(R.drawable.crosss);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
             }
