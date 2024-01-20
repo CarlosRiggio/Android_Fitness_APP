@@ -1,9 +1,342 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WorkoutSelActivity">
+    android:background="#1E1D1D"
+    tools:context=".BMIActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--Creating horizontal line-->
+    <RelativeLayout
+        android:id="@+id/center_horizontal_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"/>
+
+    <!--Creating vertical line-->
+    <RelativeLayout
+        android:id="@+id/center_vertical_line"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"/>
+
+    <!--Bulk selection-->
+    <RelativeLayout
+        android:layout_width="400dp"
+        android:layout_height="150dp"
+        android:layout_toStartOf="@id/center_vertical_line"
+        android:background="@drawable/malefemalenotfocus"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/bulk_workout">
+
+        <!--Muscle icon-->
+        <ImageView
+            android:layout_width="170px"
+            android:layout_height="170px"
+            android:layout_above="@+id/text_bulk"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/male">
+
+        </ImageView>
+
+        <!--Muscle title-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:id="@+id/text_bulk"
+            android:text="Muscle gain"
+            android:fontFamily="@font/raleway"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:textAlignment="center">
+
+        </TextView>
+
+    </RelativeLayout>
+
+    <!--Bulk plan selection-->
+    <RelativeLayout
+        android:layout_width="400dp"
+        android:layout_height="150dp"
+        android:layout_toEndOf="@id/center_vertical_line"
+        android:background="@drawable/malefemalenotfocus"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:id="@+id/radio_bulk_selection"
+            android:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rd_bulk_2d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2 Day / Week Plan"
+                android:textColor="@color/white">
+
+            </androidx.appcompat.widget.AppCompatRadioButton>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rd_bulk_4d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="4 Day / Week Plan"
+                android:textColor="@color/white">
+
+            </androidx.appcompat.widget.AppCompatRadioButton>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rd_bulk_6d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="6 Day / Week Plan"
+                android:textColor="@color/white">
+
+            </androidx.appcompat.widget.AppCompatRadioButton>
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+
+    <!--Maintenance selection-->
+    <RelativeLayout
+        android:layout_width="400dp"
+        android:layout_height="150dp"
+        android:layout_toStartOf="@id/center_vertical_line"
+        android:background="@drawable/malefemalenotfocus"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="250dp"
+        android:layout_marginBottom="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/maint_workout">
+
+        <!--Gym icon-->
+        <ImageView
+            android:layout_width="170px"
+            android:layout_height="170px"
+            android:layout_above="@+id/text_maint"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/male">
+
+        </ImageView>
+
+        <!--Maintenance title-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:id="@+id/text_maint"
+            android:text="Maintenance"
+            android:fontFamily="@font/raleway"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:textAlignment="center">
+
+        </TextView>
+
+    </RelativeLayout>
+
+    <!--Maintenance plan selection-->
+    <RelativeLayout
+        android:layout_width="400dp"
+        android:layout_height="150dp"
+        android:layout_toEndOf="@id/center_vertical_line"
+        android:background="@drawable/malefemalenotfocus"
+        android:layout_marginTop="250dp"
+        android:layout_marginBottom="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:id="@+id/radio_maint_selection"
+            android:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rd_maint_2d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2 Day / Week Plan"
+                android:textColor="@color/white">
+
+            </androidx.appcompat.widget.AppCompatRadioButton>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rd_maint_4d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="4 Day / Week Plan"
+                android:textColor="@color/white">
+
+            </androidx.appcompat.widget.AppCompatRadioButton>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rd_maint_6d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="6 Day / Week Plan"
+                android:textColor="@color/white">
+
+            </androidx.appcompat.widget.AppCompatRadioButton>
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+
+
+
+
+
+    <!--Cut selection-->
+    <RelativeLayout
+        android:layout_width="400dp"
+        android:layout_height="150dp"
+        android:layout_toStartOf="@id/center_vertical_line"
+        android:background="@drawable/malefemalenotfocus"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="460dp"
+        android:layout_marginBottom="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/cut_workout">
+
+        <!--Run icon-->
+        <ImageView
+            android:layout_width="170px"
+            android:layout_height="170px"
+            android:layout_above="@+id/text_cut"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/male">
+
+        </ImageView>
+
+        <!--Maintenance title-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:id="@+id/text_cut"
+            android:text="Cut"
+            android:fontFamily="@font/raleway"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:textAlignment="center">
+
+        </TextView>
+
+    </RelativeLayout>
+
+    <!--Cut plan selection-->
+    <RelativeLayout
+        android:layout_width="400dp"
+        android:layout_height="150dp"
+        android:layout_toEndOf="@id/center_vertical_line"
+        android:background="@drawable/malefemalenotfocus"
+        android:layout_marginTop="460dp"
+        android:layout_marginBottom="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:id="@+id/radio_cut_selection"
+            android:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rd_cut_2d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2 Day / Week Plan"
+                android:textColor="@color/white">
+
+            </androidx.appcompat.widget.AppCompatRadioButton>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rd_cut_4d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="4 Day / Week Plan"
+                android:textColor="@color/white">
+
+            </androidx.appcompat.widget.AppCompatRadioButton>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rd_cut_6d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="6 Day / Week Plan"
+                android:textColor="@color/white">
+
+            </androidx.appcompat.widget.AppCompatRadioButton>
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+
+    <android.widget.Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/gotomain"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/buttonbackground"
+        android:text="GO TO WORKOUT"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/raleway"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+
+    </android.widget.Button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

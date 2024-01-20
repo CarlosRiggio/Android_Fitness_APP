@@ -32,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openWorkoutSelectionPage(View view){
+        // intent go to splash activity that last 1.5s just to show up
+        Intent intent = new Intent(this, SplashWorkoutActivity.class);
+        startActivity(intent);
+    }
+
     public void openPreviousBMIData(View view){
         try {
             // instantiate sharedpreferences object with mypreferences, private mode
