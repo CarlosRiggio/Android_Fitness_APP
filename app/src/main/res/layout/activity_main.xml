@@ -65,7 +65,8 @@
         android:layout_marginTop="88dp"
         android:text="@string/graph_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="openGraphc"/>
 
     <Button
         android:id="@+id/button4"

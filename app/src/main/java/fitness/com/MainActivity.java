@@ -63,4 +63,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    public void openGraph(View view){
+        Intent intent_main_to_graph = new Intent(MainActivity.this, Graph.class);
+        startActivity(intent_main_to_graph);
+    }
+
 }
