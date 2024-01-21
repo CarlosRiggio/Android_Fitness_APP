@@ -17,7 +17,7 @@ public class WorkoutSelActivity extends AppCompatActivity {
     int radio_sel_id, age;
     int radio_bulk_prev_id, radio_maint_prev_id, radio_cut_prev_id;
     RelativeLayout bulk, maint, cut;
-    String typeofworkout = "";
+    String typeofworkout = "", type_day_workout = "";
     Intent intent;
 
     @Override
@@ -187,74 +187,86 @@ public class WorkoutSelActivity extends AppCompatActivity {
             if(radio_bulk.getCheckedRadioButtonId() == R.id.rd_bulk_2d)
             {
                 // 2d bulk plan page
-                System.out.println("2d bulk");
+                type_day_workout = "2d_bulk";
+                openIntentWorkout();
             }
             else if(radio_bulk.getCheckedRadioButtonId() == R.id.rd_bulk_4d)
             {
                 // 4d bulk plan page
-                System.out.println("4d bulk");
+                type_day_workout = "4d_bulk";
+                openIntentWorkout();
             }
             else if(radio_bulk.getCheckedRadioButtonId() == R.id.rd_bulk_6d)
             {
                 // 6d bulk plan page
-                System.out.println("6d bulk");
+                type_day_workout = "6d_bulk";
+                openIntentWorkout();
             }
             else
             {
                 Toast.makeText(this, "Select a workout plan", Toast.LENGTH_SHORT).show();
             }
-
         }
         else if(typeofworkout.equals("Maint"))
         {
             if(radio_maint.getCheckedRadioButtonId() == R.id.rd_maint_2d)
             {
                 // 2d maint plan page
-                System.out.println("2d maint");
+                type_day_workout = "2d_maint";
+                openIntentWorkout();
             }
             else if(radio_maint.getCheckedRadioButtonId() == R.id.rd_maint_4d)
             {
                 // 4d maint plan page
-                System.out.println("4d maint");
+                type_day_workout = "4d_maint";
+                openIntentWorkout();
             }
             else if(radio_maint.getCheckedRadioButtonId() == R.id.rd_maint_6d)
             {
                 // 6d maint plan page
-                System.out.println("6d maint");
+                type_day_workout = "6d_maint";
+                openIntentWorkout();
             }
             else
             {
                 Toast.makeText(this, "Select a workout plan", Toast.LENGTH_SHORT).show();
             }
-
         }
         else if(typeofworkout.equals("Cut"))
         {
             if(radio_cut.getCheckedRadioButtonId() == R.id.rd_cut_2d)
             {
                 // 2d cut plan page
-                System.out.println("2d cut");
+                type_day_workout = "2d_cut";
+                openIntentWorkout();
             }
             else if(radio_cut.getCheckedRadioButtonId() == R.id.rd_cut_4d)
             {
                 // 4d cut plan page
-                System.out.println("4d cut");
+                type_day_workout = "4d_cut";
+                openIntentWorkout();
             }
             else if(radio_cut.getCheckedRadioButtonId() == R.id.rd_cut_6d)
             {
                 // 6d cut plan page
-                System.out.println("6d cut");
+                type_day_workout = "6d_cut";
+                openIntentWorkout();
             }
             else
             {
                 Toast.makeText(this, "Select a workout plan", Toast.LENGTH_SHORT).show();
             }
-
         }
         else
         {
             Toast.makeText(this, "Select a workout plan", Toast.LENGTH_SHORT).show();
         }
-
     }
+
+    public void openIntentWorkout(){
+        Intent intent_to_exercise = new Intent(this, Workout.class);
+        intent_to_exercise.putExtra("type_day_workout_key", type_day_workout);
+        startActivity(intent_to_exercise);
+    }
+
 }
