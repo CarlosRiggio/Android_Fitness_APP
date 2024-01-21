@@ -1,0 +1,26 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_bg"
+    tools:context=".MainActivity">
+
+    <!--line graph view where we will
+        be displaying our data-->
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/idGraphView_BMI"
+        android:layout_width="match_parent"
+        android:layout_height="264dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="380dp" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/idGraphView_Weight"
+        android:layout_width="match_parent"
+        android:layout_height="264dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="76dp" />
+
+</RelativeLayout>
