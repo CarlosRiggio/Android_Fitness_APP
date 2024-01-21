@@ -10,5 +10,6 @@
     <string name="graph_button">GRAPH</string>
     <string name="further_button">FURTHER</string>
     <string name="lift_lab_button">LIFT LAB</string>
+    <string name="workout">Workout</string>
 
 </resources>
