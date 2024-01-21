@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
@@ -33,19 +35,28 @@ public class Graph extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
 
-        List<Datas> datasList = readDataFromCsv();
-        graphView_Weight = findViewById(R.id.idGraphView_Weight);
-        graphView_BMI = findViewById(R.id.idGraphView_BMI);
+        try {
+            List<Datas> datasList = readDataFromCsv();
+            graphView_Weight = findViewById(R.id.idGraphView_Weight);
+            graphView_BMI = findViewById(R.id.idGraphView_BMI);
 
-        // Llenar listas con datos
-        for (Datas data : datasList) {
-            dateList.add(data.getLocalData());
-            weightList.add(Double.parseDouble(data.getWeight()));
-            bmiList.add(Double.parseDouble(data.getBmi()));
+            // Llenar listas con datos
+            for (Datas data : datasList) {
+                dateList.add(data.getLocalData());
+                weightList.add(Double.parseDouble(data.getWeight()));
+                bmiList.add(Double.parseDouble(data.getBmi()));
+            }
+
+            createGraph_with_target(getApplicationContext(),graphView_Weight, dateList, weightList,"Weight", tg);
+            createGraph(getApplicationContext(),graphView_BMI, dateList,bmiList, "BMI");
+
+        }
+        catch (IllegalArgumentException exception)
+        {
+            Toast.makeText(getApplicationContext(),"You must calculate your BMI first",Toast.LENGTH_SHORT).show();
+            finish();
         }
 
-        createGraph_with_target(getApplicationContext(),graphView_Weight, dateList, weightList,"Weight", tg);
-        createGraph(getApplicationContext(),graphView_BMI, dateList,bmiList, "BMI");
 //---------------------------------------------------------------------------------------------------
     }
 
