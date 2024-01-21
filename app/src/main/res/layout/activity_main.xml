@@ -139,7 +139,8 @@
         android:layout_marginTop="596dp"
         android:text="@string/target_weight_button"
         app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
         android:id="@+id/textView"
