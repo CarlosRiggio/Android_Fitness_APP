@@ -31,7 +31,7 @@ public class Graph extends AppCompatActivity {
     private List<String> dateList = new ArrayList<>();
     private List<Double> weightList = new ArrayList<>();
     private List<Double> bmiList = new ArrayList<>();
-    int tg_int;
+    float tg_int;
     double tg;
     SharedPreferences sharedPreferences;
     @Override
@@ -53,8 +53,7 @@ public class Graph extends AppCompatActivity {
 
             // getting tg from preferences
             sharedPreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
-            tg_int = sharedPreferences.getInt(ValueState, 0);
-            System.out.println(tg_int);
+            tg_int = sharedPreferences.getFloat(ValueState, 0);
             tg = (double) tg_int;
 
             createGraph_with_target(getApplicationContext(),graphView_Weight, dateList, weightList, tg_int);

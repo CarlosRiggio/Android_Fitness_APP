@@ -17,7 +17,7 @@ public class SetTargetActivity extends AppCompatActivity {
     public static final String ValueState = "targetValue";
     public static final String MyPREFERENCES = "MyPrefs";
     EditText editTextTarget;
-    int targetValue;
+    float targetValue;
 
     // sharedPreferences
     SharedPreferences sharedPreferences;
@@ -30,7 +30,7 @@ public class SetTargetActivity extends AppCompatActivity {
         editTextTarget = findViewById(R.id.editTextTarget);
         // Load the saved target value from SharedPreferences
         sharedPreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
-        targetValue = sharedPreferences.getInt(ValueState, 0);
+        targetValue = sharedPreferences.getFloat(ValueState, 0);
         editTextTarget.setText(String.valueOf(targetValue));
 
         // Add an onEditorAction listener to the EditText
@@ -43,11 +43,11 @@ public class SetTargetActivity extends AppCompatActivity {
 
                     // Save the target value to SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putInt(ValueState, Integer.parseInt(apo));
+                    editor.putFloat(ValueState, Float.parseFloat(apo));
                     editor.apply();
 
                     // Show a toast message
-                    Toast.makeText(SetTargetActivity.this, "Target set to " + targetValue, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SetTargetActivity.this, "Target set to " + apo, Toast.LENGTH_SHORT).show();
 
                     return true;
                 }

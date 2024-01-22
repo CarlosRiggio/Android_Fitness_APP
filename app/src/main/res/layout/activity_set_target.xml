@@ -1,86 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingStart="32dp"
-    android:paddingEnd="32dp"
+    android:background="@color/black_bg"
     tools:context=".SetTargetActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/target_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="       WEIGHT TARGET"
-        android:textColor="@color/design_default_color_on_secondary"
-        android:textSize="30sp" />
+        android:background="@drawable/cardbackground"
+        android:textColor="@color/progress_red"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="5dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="TARGET WEIGHT"
+            android:textSize="40sp"
+            android:textColor="@color/red_button"
+            android:fontFamily="@font/raleway"/>
+    </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="Welcome to our weight goal feature: "
-        android:textColor="@color/design_default_color_on_secondary"
-        android:textSize="14sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:text="Here you can set your ideal weight target and track your transformation journey. "
-        android:textColor="@color/design_default_color_on_secondary"
-        android:textSize="10sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter the weight you aim to achieve, and let our app guide you towards success."
-        android:textColor="@color/design_default_color_on_secondary"
-        android:textSize="10sp" />
+        android:id="@+id/first_description"
+        android:layout_below="@id/target_title"
+        android:background="@drawable/cardbackground"
+        android:textColor="@color/progress_red"
+        android:padding="10dp"
+        android:layout_marginTop="5dp">
 
+        <TextView
+            android:id="@+id/text_descr1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="Welcome to our weight goal feature:"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/green_1"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_below="@id/text_descr1"
+            android:text="Here you can set your ideal weight target and track your transformation journey."
+            android:textSize="20sp"
+            android:textColor="@color/white" />
+    </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SET TARGET:"
-        android:textColor="@color/design_default_color_on_secondary"
-        android:textSize="14sp" />
+        android:id="@+id/third_description"
+        android:layout_below="@id/first_description"
+        android:background="@drawable/cardbackground"
+        android:textColor="@color/progress_red"
+        android:padding="10dp"
+        android:layout_marginTop="5dp">
 
-    <EditText
-        android:id="@+id/editTextTarget"
-        android:layout_width="126dp"
-        android:layout_height="wrap_content"
-        android:hint="Insert target"
-        android:inputType="numberDecimal" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="Enter the weight you aim to achieve, and let our app guide you towards success."
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/green_1"/>
+    </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your journey to a healthier and stronger version of yourself starts here!"
-        android:textColor="@color/design_default_color_on_secondary"
-        android:textSize="10sp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/third_description"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/cardbackground"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/weight_target">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        <!--Weight title-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red_button"
+            android:text="Weight Target"
+            android:id="@+id/text_weight"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:layout_marginTop="15dp">
+        </TextView>
 
-</LinearLayout>
+        <!--Weight Target edit text-->
+        <EditText
+            android:id="@+id/editTextTarget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:autofillHints=""
+            android:hint="insert"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="#fce1dc"
+            android:textSize="30sp"
+            android:textStyle="bold">
+
+        </EditText>
+
+        <!--Kg label-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Kg"
+            android:fontFamily="@font/raleway"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp">
+        </TextView>
+    </RelativeLayout>
+
+    <!--scale and quote-->
+    <RelativeLayout
+        android:id="@+id/scale_layout"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/weight_target"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/cardbackground"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+
+        <!--Image-->
+        <ImageView
+            android:id="@+id/scaleImage"
+            android:layout_width="159dp"
+            android:layout_height="119dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/weight_taget_icon" />
+
+        <!--Quote-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Your journey to a healthier and stronger version of yourself starts here!"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:layout_toEndOf="@id/scaleImage"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="10dp">
+        </TextView>
+    </RelativeLayout>
+
+
+</RelativeLayout>

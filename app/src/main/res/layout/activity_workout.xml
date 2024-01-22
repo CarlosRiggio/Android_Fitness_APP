@@ -11,7 +11,7 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="68dp"
-        android:textSize="60dp"
+        android:textSize="60sp"
         android:text="@string/workout"
         android:background="@drawable/cardbackground"
         android:textColor="@color/progress_red"
