@@ -47,8 +47,8 @@ public class Graph extends AppCompatActivity {
                 bmiList.add(Double.parseDouble(data.getBmi()));
             }
 
-            createGraph_with_target(getApplicationContext(),graphView_Weight, dateList, weightList,"Weight", tg);
-            createGraph(getApplicationContext(),graphView_BMI, dateList,bmiList, "BMI");
+            createGraph_with_target(getApplicationContext(),graphView_Weight, dateList, weightList, tg);
+            createGraph(getApplicationContext(),graphView_BMI, dateList, bmiList);
 
         }
         catch (IllegalArgumentException exception)
@@ -61,7 +61,7 @@ public class Graph extends AppCompatActivity {
     }
 
     public static void createGraph(Context context, GraphView graphView,
-                                   List<String> dateList, List<Double> infoList, String graphTitle) {
+                                   List<String> dateList, List<Double> infoList) {
 
         DataPoint[] dataPointsArray = new DataPoint[infoList.size()];
         for (int i = 0; i < infoList.size(); i++) {
@@ -79,7 +79,6 @@ public class Graph extends AppCompatActivity {
         lineSeries.setColor(context.getResources().getColor(R.color.white));
 
         // Configurar propiedades de la gráfica
-        graphView.setTitle(graphTitle);
         graphView.setTitleColor(context.getResources().getColor(R.color.white));
         graphView.setTitleTextSize(60);
 
@@ -127,8 +126,7 @@ public class Graph extends AppCompatActivity {
     }
 
     public static void createGraph_with_target(Context context, GraphView graphView,
-                                               List<String> dateList, List<Double> infoList,
-                                               String graphTitle, double targetValue) {
+                                               List<String> dateList, List<Double> infoList, double targetValue) {
 
         DataPoint[] dataPointsArray = new DataPoint[infoList.size()];
         for (int i = 0; i < infoList.size(); i++) {
@@ -150,7 +148,6 @@ public class Graph extends AppCompatActivity {
         graphView.addSeries(lineSeries);
 
         // Configure graph properties
-        graphView.setTitle(graphTitle);
         graphView.setTitleColor(context.getResources().getColor(R.color.white));
         graphView.setTitleTextSize(60);
 

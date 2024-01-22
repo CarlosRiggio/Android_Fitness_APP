@@ -12,11 +12,11 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
     Context context;
-    List<Exercise> excercises;
+    List<Exercise> exercises;
 
-    public MyAdapter(Context context, List<Exercise> excercises) {
+    public MyAdapter(Context context, List<Exercise> exercises) {
         this.context = context;
-        this.excercises = excercises;
+        this.exercises = exercises;
     }
 
     @NonNull
@@ -27,16 +27,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.nameView.setText(excercises.get(position).getName());
-        holder.imageView.setImageResource(excercises.get(position).getImage());
-        holder.repView.setText(excercises.get(position).getRep());
-        holder.recovery_tView.setText(excercises.get(position).getRecovery_t());
-        holder.weightView.setText(excercises.get(position).getWeight());
+        holder.nameView.setText(exercises.get(position).getName());
+        holder.imageView.setImageResource(exercises.get(position).getImage());
+        holder.repView.setText(exercises.get(position).getRep());
+        holder.recovery_tView.setText(exercises.get(position).getRecovery_t());
+        holder.weightView.setText(exercises.get(position).getWeight());
 
     }
 
     @Override
     public int getItemCount() {
-        return excercises.size();
+        return exercises.size();
     }
 }
