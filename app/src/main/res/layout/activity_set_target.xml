@@ -24,7 +24,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:text="TARGET WEIGHT"
-            android:textSize="40sp"
+            android:textSize="35sp"
             android:textColor="@color/red_button"
             android:fontFamily="@font/raleway"/>
     </RelativeLayout>
@@ -46,6 +46,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:text="Welcome to our weight goal feature:"
+            android:gravity="center"
             android:textStyle="bold"
             android:textSize="20sp"
             android:textColor="@color/green_1"/>
@@ -58,6 +59,7 @@
             android:layout_marginEnd="30dp"
             android:layout_below="@id/text_descr1"
             android:text="Here you can set your ideal weight target and track your transformation journey."
+            android:gravity="center"
             android:textSize="20sp"
             android:textColor="@color/white" />
     </RelativeLayout>
@@ -78,6 +80,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:text="Enter the weight you aim to achieve, and let our app guide you towards success."
+            android:gravity="center"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/green_1"/>
@@ -143,12 +146,13 @@
     <RelativeLayout
         android:id="@+id/scale_layout"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/weight_target"
         android:layout_marginTop="20dp"
         android:background="@drawable/cardbackground"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
         >
 
         <!--Image-->
@@ -157,10 +161,6 @@
             android:layout_width="159dp"
             android:layout_height="119dp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
             android:src="@drawable/weight_taget_icon" />
 
         <!--Quote-->
@@ -170,10 +170,11 @@
             android:textColor="@color/white"
             android:text="Your journey to a healthier and stronger version of yourself starts here!"
             android:textAlignment="center"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
             android:textSize="20sp"
             android:layout_toEndOf="@id/scaleImage"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             android:layout_marginEnd="10dp">
         </TextView>
     </RelativeLayout>

@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text="@string/lift_lab_button"
             android:layout_centerHorizontal="true"
-            android:textSize="30sp"
+            android:textSize="40sp"
             android:textColor="@color/red_button"
             android:textStyle="bold"
             android:fontFamily="@font/raleway"
