@@ -1,6 +1,10 @@
 package fitness.com;
 
+import static fitness.com.BMIActivity.MyPREFERENCES;
+import static fitness.com.SetTargetActivity.ValueState;
+
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -9,7 +13,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.PointsGraphSeries;
@@ -28,8 +31,9 @@ public class Graph extends AppCompatActivity {
     private List<String> dateList = new ArrayList<>();
     private List<Double> weightList = new ArrayList<>();
     private List<Double> bmiList = new ArrayList<>();
-
-    private Double tg = 50.0;
+    int tg_int;
+    double tg;
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +51,13 @@ public class Graph extends AppCompatActivity {
                 bmiList.add(Double.parseDouble(data.getBmi()));
             }
 
-            createGraph_with_target(getApplicationContext(),graphView_Weight, dateList, weightList, tg);
+            // getting tg from preferences
+            sharedPreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
+            tg_int = sharedPreferences.getInt(ValueState, 0);
+            System.out.println(tg_int);
+            tg = (double) tg_int;
+
+            createGraph_with_target(getApplicationContext(),graphView_Weight, dateList, weightList, tg_int);
             createGraph(getApplicationContext(),graphView_BMI, dateList, bmiList);
 
         }
