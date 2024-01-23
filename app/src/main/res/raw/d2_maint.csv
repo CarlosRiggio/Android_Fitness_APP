@@ -1,0 +1,11 @@
+Title;Set x repetition / Execution time;Recovery time;Weight used;Image
+Tapis roulant running;10 min;1 min 30 sec;;tapis_roulant_running
+Jumping jacks;5 min;2 min;;jumping_jack
+Push Up;4 x 10;1 min;;push_up
+Australian pull up ;4 x 12;1 min;;australian_pull_up
+Sit Up;4 x 20;1 min;;sit_up
+Jump squat;4 x 15;2 min;;jump_squat
+Chest press;4 x 12;45 sec;Your bodyweight x 1/5;chest_press
+Bent over row;5 x 20;1 min 30 sec;;bent_over_row
+Bicycle crunch;5 x 1 min;1 min;;bicycle_crunch
+Leg lunges;4 x 10 for both leg;1 min 30 sec;Your bodyweight x 1/7;leg_lunges

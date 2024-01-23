@@ -187,19 +187,19 @@ public class WorkoutSelActivity extends AppCompatActivity {
             if(radio_bulk.getCheckedRadioButtonId() == R.id.rd_bulk_2d)
             {
                 // 2d bulk plan page
-                type_day_workout = "2d_bulk";
+                type_day_workout = "d2_bulk";
                 openIntentWorkout();
             }
             else if(radio_bulk.getCheckedRadioButtonId() == R.id.rd_bulk_4d)
             {
                 // 4d bulk plan page
-                type_day_workout = "4d_bulk";
+                type_day_workout = "d4_bulk";
                 openIntentWorkout();
             }
             else if(radio_bulk.getCheckedRadioButtonId() == R.id.rd_bulk_6d)
             {
                 // 6d bulk plan page
-                type_day_workout = "6d_bulk";
+                type_day_workout = "d6_bulk";
                 openIntentWorkout();
             }
             else
@@ -212,19 +212,19 @@ public class WorkoutSelActivity extends AppCompatActivity {
             if(radio_maint.getCheckedRadioButtonId() == R.id.rd_maint_2d)
             {
                 // 2d maint plan page
-                type_day_workout = "2d_maint";
+                type_day_workout = "d2_maint";
                 openIntentWorkout();
             }
             else if(radio_maint.getCheckedRadioButtonId() == R.id.rd_maint_4d)
             {
                 // 4d maint plan page
-                type_day_workout = "4d_maint";
+                type_day_workout = "d4_maint";
                 openIntentWorkout();
             }
             else if(radio_maint.getCheckedRadioButtonId() == R.id.rd_maint_6d)
             {
                 // 6d maint plan page
-                type_day_workout = "6d_maint";
+                type_day_workout = "d6_maint";
                 openIntentWorkout();
             }
             else
@@ -237,19 +237,19 @@ public class WorkoutSelActivity extends AppCompatActivity {
             if(radio_cut.getCheckedRadioButtonId() == R.id.rd_cut_2d)
             {
                 // 2d cut plan page
-                type_day_workout = "2d_cut";
+                type_day_workout = "d2_cut";
                 openIntentWorkout();
             }
             else if(radio_cut.getCheckedRadioButtonId() == R.id.rd_cut_4d)
             {
                 // 4d cut plan page
-                type_day_workout = "4d_cut";
+                type_day_workout = "d4_cut";
                 openIntentWorkout();
             }
             else if(radio_cut.getCheckedRadioButtonId() == R.id.rd_cut_6d)
             {
                 // 6d cut plan page
-                type_day_workout = "6d_cut";
+                type_day_workout = "d6_cut";
                 openIntentWorkout();
             }
             else

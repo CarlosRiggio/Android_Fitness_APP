@@ -1,159 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/custom_blue"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black_bg"
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="90dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="484dp"
-        android:text="- Tools"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+    <!--SLOGAN-->
+    <RelativeLayout
+        android:id="@+id/liftlab_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/lift_lab_button"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="28dp" />
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/cardbackground">
 
+        <ImageView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="110dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/slogan"
+            android:contentDescription="@string/slogan_image_description"/>
 
-    <Button
-        android:id="@+id/button1"
+    </RelativeLayout>
 
-        android:layout_width="113dp"
+    <!--TOOLS-->
+    <RelativeLayout
+        android:id="@+id/tools_layout"
+        android:layout_above="@id/data_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/cardbackground">
 
-        android:layout_height="58dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="88dp"
-        android:text="@string/home_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tools_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tools_text"
+            android:layout_marginStart="20dp"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:fontFamily="@font/raleway"
+            android:layout_marginTop="10dp"/>
 
-    <Button
-        android:id="@+id/button2"
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/tools_text"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:onClick="openBMICalculator"
+            android:text="@string/BMI_CALCULATOR"
+            android:textSize="20sp"
+            app:cornerRadius="10dp"
+            app:backgroundTint="#0c91e0"/>
 
-        android:layout_width="113dp"
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_below="@id/button4"
+            android:layout_marginTop="10dp"
+            android:text="@string/workout_selection_button"
+            android:textSize="20sp"
+            android:onClick="openWorkoutSelectionPage"
+            app:cornerRadius="10dp"
+            app:backgroundTint="#0c91e0"/>
 
-        android:layout_height="58dp"
-        android:layout_marginStart="268dp"
-        android:layout_marginTop="88dp"
-        android:text="@string/further_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/button3"
+    <!--DATA-->
+    <RelativeLayout
+        android:id="@+id/data_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cardbackground">
 
-        android:layout_width="113dp"
+        <TextView
+            android:id="@+id/data_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/data_text"
+            android:layout_marginStart="20dp"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:fontFamily="@font/raleway"
+            android:layout_marginTop="10dp"/>
 
-        android:layout_height="58dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="88dp"
-        android:text="@string/graph_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="openGraph"/>
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_below="@id/data_text"
+            android:layout_marginTop="10dp"
+            android:text="@string/bmi_data_button"
+            android:textSize="20sp"
+            android:onClick="openPreviousBMIData"
+            app:cornerRadius="10dp"
+            app:backgroundTint="#0c91e0"/>
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="265dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="124dp"
-        android:text="@string/imb_button"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        android:onClick="openBMICalculator"/>
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/button7"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/graph_button"
+            android:textSize="20sp"
+            android:onClick="openGraph"
+            app:cornerRadius="10dp"
+            app:backgroundTint="#0c91e0"/>
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="265dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/workout_selection_button"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4"
-        android:onClick="openWorkoutSelectionPage"/>
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="20dp"
+            android:layout_below="@id/button2"
+            android:layout_marginTop="10dp"
+            android:text="@string/tips_button"
+            android:textSize="20sp"
+            app:cornerRadius="10dp"
+            app:backgroundTint="#0c91e0"/>
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="265dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/workout_maker_button"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_below="@id/button2"
+            android:layout_marginTop="10dp"
+            android:text="@string/target_weight_button"
+            android:textSize="20sp"
+            android:onClick="openSetTargetActivity"
+            app:cornerRadius="10dp"
+            app:backgroundTint="#0c91e0"/>
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="332dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="56dp"
-        android:text="@string/imb_data_button"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6"
-        app:layout_constraintVertical_bias="0.634"
-        android:onClick="openPreviousBMIData"/>
-
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="133dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="596dp"
-        android:text="@string/tips_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="133dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="596dp"
-        android:text="@string/target_weight_button"
-        app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="90dp"
-        android:layout_height="28dp"
-        android:text="- Data"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="500dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
