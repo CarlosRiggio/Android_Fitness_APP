@@ -93,11 +93,11 @@ public class Graph extends AppCompatActivity {
 
         // Create a series of points for the graph
         PointsGraphSeries<DataPoint> pointsSeries = new PointsGraphSeries<>(dataPointsArray);
-        pointsSeries.setColor(context.getResources().getColor(R.color.progress_red));
+        pointsSeries.setColor(context.getResources().getColor(R.color.lift_lab_blue));
 
         // Create a series of lines for the graph
         LineGraphSeries<DataPoint> lineSeries = new LineGraphSeries<>(dataPointsArray);
-        lineSeries.setColor(context.getResources().getColor(R.color.red_button));
+        lineSeries.setColor(context.getResources().getColor(R.color.light_blue));
 
         // Configure graph properties
         graphView.setTitleColor(context.getResources().getColor(R.color.white));
@@ -140,7 +140,7 @@ public class Graph extends AppCompatActivity {
         // Configure dashed lines
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(context.getResources().getColor(R.color.progress_red));
+        paint.setColor(context.getResources().getColor(R.color.light_blue));
         paint.setStrokeWidth(8); // Adjust the line thickness
         paint.setPathEffect(new DashPathEffect(new float[]{10, 10}, 0)); // Set the dashed line pattern
         lineSeries.setCustomPaint(paint);
@@ -170,11 +170,11 @@ public class Graph extends AppCompatActivity {
 
         // Create a series of points for the graph
         PointsGraphSeries<DataPoint> pointsSeries = new PointsGraphSeries<>(dataPointsArray);
-        pointsSeries.setColor(context.getResources().getColor(R.color.progress_red));
+        pointsSeries.setColor(context.getResources().getColor(R.color.lift_lab_blue));
 
         // Create a series of lines for the graph
         LineGraphSeries<DataPoint> lineSeries = new LineGraphSeries<>(dataPointsArray);
-        lineSeries.setColor(context.getResources().getColor(R.color.progress_red));
+        lineSeries.setColor(context.getResources().getColor(R.color.light_blue));
 
         // Add both series to the graph
         graphView.addSeries(pointsSeries);
@@ -217,7 +217,7 @@ public class Graph extends AppCompatActivity {
         // Configure dashed lines for the main graph
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(context.getResources().getColor(R.color.progress_red));
+        paint.setColor(context.getResources().getColor(R.color.light_blue));
         paint.setStrokeWidth(8);
         paint.setPathEffect(new DashPathEffect(new float[]{10, 10}, 0));
         lineSeries.setCustomPaint(paint);

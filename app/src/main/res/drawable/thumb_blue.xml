@@ -1,7 +1,7 @@
 <!-- thumb_red.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
-    <solid android:color="#FF4C4C" /> <!-- Colore rosso per il thumb -->
+    <solid android:color="@color/lift_lab_blue" /> <!-- Colore rosso per il thumb -->
     <size
         android:width="24dp"
         android:height="24dp" /> <!-- Dimensioni del thumb -->

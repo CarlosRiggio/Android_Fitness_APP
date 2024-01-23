@@ -310,7 +310,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="10dp"
-            android:progressTint="#FF4C4C"
+            android:progressTint="@color/light_blue"
             android:thumbTint="@color/white"
             android:layout_marginRight="10dp"
             android:id="@+id/seekbar_for_height">
