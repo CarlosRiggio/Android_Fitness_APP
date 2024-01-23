@@ -135,7 +135,7 @@ public class Workout extends AppCompatActivity {
                     // Create an Exercise object and add it to the list
                     exercises.add(new Exercise(
                             values[0],
-                            "Reps x Sets: " + values[1],
+                            "Sets x Reps: " + values[1],
                             "Recovery time: " + values[2],
                             values[3].isEmpty() ? "Weight: 0 Kg" : "Weight: " + values[3] + " Kg", // Handle empty weight values
                             context.getResources().getIdentifier(imageName, "drawable", context.getPackageName())
