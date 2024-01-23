@@ -10,12 +10,12 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="68dp"
+        android:layout_height="80dp"
         android:textSize="60sp"
         android:text="@string/workout"
         android:background="@drawable/cardbackground"
         android:textColor="@color/progress_red"
-        android:gravity="center"/>
+        android:gravity="center" />
 
     <!--Creating vertical line-->
     <RelativeLayout
@@ -80,6 +80,17 @@
             android:text="Duration of workout"
             android:textColor="@color/white"
             android:textSize="30sp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/number_of_exercises"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/workout_duration_text"
+            android:text="Number of ex"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:layout_alignParentStart="true"
             android:gravity="center"/>
     </RelativeLayout>
 
