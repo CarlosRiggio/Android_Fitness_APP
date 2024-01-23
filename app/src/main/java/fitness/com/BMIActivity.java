@@ -30,7 +30,7 @@ public class BMIActivity extends AppCompatActivity {
     private List<Datas> datiList = new ArrayList<>();
     // initializing all of View components
     TextView currentheight, currentage, currentweight;
-    ImageView incrementage, decrementage;
+    ImageView incrementage, decrementage, incrementheight, decrementheight;
     RelativeLayout male, female;
     SeekBar seekbarforheight;
 
@@ -67,6 +67,9 @@ public class BMIActivity extends AppCompatActivity {
 
         incrementage = findViewById(R.id.increment_age);
         decrementage = findViewById(R.id.decrement_age);
+        incrementheight = findViewById(R.id.increment_height);
+        decrementheight = findViewById(R.id.decrement_height);
+
 
         male = findViewById(R.id.male);
         female = findViewById(R.id.female);
@@ -166,6 +169,46 @@ public class BMIActivity extends AppCompatActivity {
             }
         });
 
+        // increment the height
+        incrementheight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // getting the numerical age from text
+                string_progress = currentheight.getText().toString();
+                currentprogress = Integer.parseInt(string_progress);
+                // incrementing the age
+                currentprogress ++;
+                // printing the age converted
+                string_progress = String.valueOf(currentprogress);
+                currentheight.setText(string_progress);
+
+                // creating editor interface to modify preferences
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putString(HeightState, string_progress);
+                editor.apply();
+            }
+        });
+
+
+        // decrement the height
+        decrementheight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // getting the numerical age from text
+                string_progress = currentheight.getText().toString();
+                currentprogress = Integer.parseInt(string_progress);
+                // incrementing the age
+                currentprogress --;
+                // printing the age converted
+                string_progress = String.valueOf(currentprogress);
+                currentheight.setText(string_progress);
+
+                // creating editor interface to modify preferences
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putString(HeightState, string_progress);
+                editor.apply();
+            }
+        });
 
 
         // increment the age

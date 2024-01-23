@@ -1,66 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_bg"
     tools:context=".FoodWorkoutTipsActivity">
 
-    <LinearLayout
-        android:id="@+id/buttonsLayout"
+    <RelativeLayout
+        android:id="@+id/title_layout_food_workout_tips"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/cardbackground">
 
         <TextView
-            android:id="@+id/title"
             android:layout_width="match_parent"
-            android:layout_height="42dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="FOOD AND WORKOUT TIPS"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:text="@string/food_and_workout_tips"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="@color/lift_lab_blue"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/description_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_layout_food_workout_tips"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cardbackground">
 
         <TextView
-            android:id="@+id/phrase"
             android:layout_width="match_parent"
-            android:layout_height="68dp"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
             android:gravity="center"
-            android:text="Unlock Your Fitness Journey: Tailored Tips for Cutting, Maintaining, and Bulking Up!" />
+            android:text="@string/food_tips_descr_1"
+            android:textColor="@color/orange"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_button_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/description_tips"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/cardbackground">
 
         <Button
             android:id="@+id/bulkButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/bulk_text" />
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/bulk_text"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:cornerRadius="10dp"
+            app:backgroundTint="@color/lift_lab_blue"/>
 
         <Button
             android:id="@+id/maintenanceButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@id/bulkButton"
             android:text="@string/maintenance_text"
-            />
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:cornerRadius="10dp"
+            app:backgroundTint="@color/lift_lab_blue"/>
 
         <Button
             android:id="@+id/cutButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@id/maintenanceButton"
             android:text="@string/cut_text"
-            />
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:cornerRadius="10dp"
+            app:backgroundTint="@color/lift_lab_blue"/>
 
-        <View
-            android:id="@+id/space"
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_button_tips"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/cardbackground">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/food_workout_tips_intro"/>
+            android:layout_height="wrap_content"
+            android:src="@drawable/food_workout_tips_intro"
+            android:contentDescription="@string/food_tips_descr_1"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
-</LinearLayout>
+
+
+
+
+</RelativeLayout>
+
