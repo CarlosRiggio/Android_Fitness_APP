@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/bmifinall"
+        android:src="@drawable/splah_image"
         android:layout_centerInParent="true"
         android:id="@+id/workout_sel_logo"
         android:contentDescription="@string/workout_sel_logo_descr">

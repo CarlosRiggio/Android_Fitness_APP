@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     android:background="#2c2c2c"
     tools:context=".SplashBMIActivity">
-    
+
     <ImageView
+        android:id="@+id/bmi_logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/bmifinall"
         android:layout_centerInParent="true"
-        android:id="@+id/bmi_logo"
-        android:contentDescription="@string/bmi_logo_descr">
-        
+        android:contentDescription="@string/bmi_logo_descr"
+        android:src="@drawable/splah_image">
+
     </ImageView>
     
     <TextView

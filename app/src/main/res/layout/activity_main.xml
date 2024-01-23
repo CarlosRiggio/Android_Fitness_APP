@@ -68,7 +68,7 @@
             android:text="@string/BMI_CALCULATOR"
             android:textSize="20sp"
             app:cornerRadius="10dp"
-            app:backgroundTint="#0c91e0"/>
+            app:backgroundTint="@color/lift_lab_blue"/>
 
         <Button
             android:id="@+id/button5"
@@ -82,7 +82,7 @@
             android:textSize="20sp"
             android:onClick="openWorkoutSelectionPage"
             app:cornerRadius="10dp"
-            app:backgroundTint="#0c91e0"/>
+            app:backgroundTint="@color/lift_lab_blue"/>
 
     </RelativeLayout>
 
@@ -121,7 +121,7 @@
             android:textSize="20sp"
             android:onClick="openPreviousBMIData"
             app:cornerRadius="10dp"
-            app:backgroundTint="#0c91e0"/>
+            app:backgroundTint="@color/lift_lab_blue"/>
 
         <Button
             android:id="@+id/button2"
@@ -135,7 +135,7 @@
             android:textSize="20sp"
             android:onClick="openGraph"
             app:cornerRadius="10dp"
-            app:backgroundTint="#0c91e0"/>
+            app:backgroundTint="@color/lift_lab_blue"/>
 
         <Button
             android:id="@+id/button8"
@@ -147,7 +147,8 @@
             android:text="@string/tips_button"
             android:textSize="20sp"
             app:cornerRadius="10dp"
-            app:backgroundTint="#0c91e0"/>
+            app:backgroundTint="@color/lift_lab_blue"
+            android:onClick="openFoodWorkoutTips"/>
 
         <Button
             android:id="@+id/button9"
@@ -161,7 +162,7 @@
             android:textSize="20sp"
             android:onClick="openSetTargetActivity"
             app:cornerRadius="10dp"
-            app:backgroundTint="#0c91e0"/>
+            app:backgroundTint="@color/lift_lab_blue"/>
     </RelativeLayout>
 
 </RelativeLayout>

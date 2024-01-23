@@ -73,4 +73,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openFoodWorkoutTips(View view) {
+        Intent intent = new Intent(this, FoodWorkoutTipsActivity.class);
+        startActivity(intent);
+    }
+
 }
