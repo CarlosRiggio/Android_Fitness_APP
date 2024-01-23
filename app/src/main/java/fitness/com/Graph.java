@@ -9,13 +9,15 @@ import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.Viewport;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.PointsGraphSeries;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Graph extends AppCompatActivity {
+
     private GraphView graphView_Weight;
     private GraphView graphView_BMI;
     private List<String> dateList = new ArrayList<>();
@@ -75,74 +78,18 @@ public class Graph extends AppCompatActivity {
         DataPoint[] dataPointsArray = new DataPoint[infoList.size()];
         for (int i = 0; i < infoList.size(); i++) {
             double infoValue = infoList.get(i);
-            // Crear un objeto DataPoint con fecha y valor de peso
-            dataPointsArray[i] = new DataPoint(i, infoValue);
-        }
-
-        // Crear una serie de puntos para la gráfica
-        PointsGraphSeries<DataPoint> pointsSeries = new PointsGraphSeries<>(dataPointsArray);
-        pointsSeries.setColor(context.getResources().getColor(R.color.progress_red));
-
-        // Crear una serie de líneas para la gráfica
-        LineGraphSeries<DataPoint> lineSeries = new LineGraphSeries<>(dataPointsArray);
-        lineSeries.setColor(context.getResources().getColor(R.color.white));
-
-        // Configurar propiedades de la gráfica
-        graphView.setTitleColor(context.getResources().getColor(R.color.white));
-        graphView.setTitleTextSize(60);
-
-        // Agregar ambas series a la gráfica
-        graphView.addSeries(pointsSeries);
-        graphView.addSeries(lineSeries);
-
-        // Configurar etiquetas personalizadas en el eje x
-        String[] dateLabels = dateList.toArray(new String[0]);
-        graphView.getGridLabelRenderer().setNumHorizontalLabels(dateLabels.length);
-        graphView.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
-            @Override
-            public String formatLabel(double value, boolean isValueX) {
-                if (isValueX) {
-                    // Convertir el valor de double a índice entero para acceder al array
-                    int index = (int) value;
-                    // Verificar si el índice está dentro del rango del array
-                    if (index >= 0 && index < dateLabels.length) {
-                        // Devolver la etiqueta personalizada para la posición
-                        return dateLabels[index];
-                    } else {
-                        // Devolver una cadena vacía si el índice está fuera de rango
-                        return "";
-                    }
-                } else {
-                    // Devolver el valor y normalmente para el eje y
-                    return super.formatLabel(value, isValueX);
-                }
-            }
-        });
-        graphView.getGridLabelRenderer().setHorizontalAxisTitleColor(context.getResources().getColor(R.color.white));
-        graphView.getGridLabelRenderer().setVerticalAxisTitleColor(context.getResources().getColor(R.color.white));
-        graphView.getGridLabelRenderer().setHorizontalLabelsColor(context.getResources().getColor(R.color.white));
-        graphView.getGridLabelRenderer().setVerticalLabelsColor(context.getResources().getColor(R.color.white));
-
-        // Configurar líneas discontinuas
-        Paint paint = new Paint();
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(context.getResources().getColor(R.color.progress_red));
-        paint.setStrokeWidth(8); // Ajusta el grosor de la línea
-        paint.setPathEffect(new DashPathEffect(new float[]{10, 10}, 0)); // Establece el patrón de línea discontinua
-        lineSeries.setCustomPaint(paint);
-
-
-    }
-
-    public static void createGraph_with_target(Context context, GraphView graphView,
-                                               List<String> dateList, List<Double> infoList, double targetValue) {
-
-        DataPoint[] dataPointsArray = new DataPoint[infoList.size()];
-        for (int i = 0; i < infoList.size(); i++) {
-            double infoValue = infoList.get(i);
             // Create a DataPoint object with date and weight value
             dataPointsArray[i] = new DataPoint(i, infoValue);
         }
+
+        /*
+        // making the graph scalable and scrollable
+        Viewport viewport = graphView.getViewport();
+        viewport.setScalable(true);
+        viewport.setScrollable(true);
+        viewport.setScalableY(true);
+        viewport.setScrollableY(true);
+        */
 
         // Create a series of points for the graph
         PointsGraphSeries<DataPoint> pointsSeries = new PointsGraphSeries<>(dataPointsArray);
@@ -150,15 +97,88 @@ public class Graph extends AppCompatActivity {
 
         // Create a series of lines for the graph
         LineGraphSeries<DataPoint> lineSeries = new LineGraphSeries<>(dataPointsArray);
-        lineSeries.setColor(context.getResources().getColor(R.color.white));
+        lineSeries.setColor(context.getResources().getColor(R.color.red_button));
+
+        // Configure graph properties
+        graphView.setTitleColor(context.getResources().getColor(R.color.white));
+        graphView.setTitleTextSize(60);
 
         // Add both series to the graph
         graphView.addSeries(pointsSeries);
         graphView.addSeries(lineSeries);
 
-        // Configure graph properties
-        graphView.setTitleColor(context.getResources().getColor(R.color.white));
-        graphView.setTitleTextSize(60);
+        // Configure custom labels on the x-axis
+        String[] dateLabels = dateList.toArray(new String[0]);
+        graphView.getGridLabelRenderer().setNumHorizontalLabels(dateLabels.length);
+        graphView.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
+            @Override
+            public String formatLabel(double value, boolean isValueX) {
+                if (isValueX) {
+                    // Convert double value to integer index to access the array
+                    int index = (int) value;
+                    // Check if the index is within the array range
+                    if (index >= 0 && index < dateLabels.length) {
+                        // Return the custom label for the position
+                        return dateLabels[index];
+                    } else {
+                        // Return an empty string if the index is out of range
+                        return "";
+                    }
+                } else {
+                    // Return the value as usual for the y-axis
+                    return super.formatLabel(value, isValueX);
+                }
+            }
+        });
+
+        graphView.getGridLabelRenderer().setHorizontalLabelsAngle(90);
+        graphView.getGridLabelRenderer().setHorizontalAxisTitleColor(context.getResources().getColor(R.color.white));
+        graphView.getGridLabelRenderer().setVerticalAxisTitleColor(context.getResources().getColor(R.color.white));
+        graphView.getGridLabelRenderer().setHorizontalLabelsColor(context.getResources().getColor(R.color.white));
+        graphView.getGridLabelRenderer().setVerticalLabelsColor(context.getResources().getColor(R.color.white));
+
+        // Configure dashed lines
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setColor(context.getResources().getColor(R.color.progress_red));
+        paint.setStrokeWidth(8); // Adjust the line thickness
+        paint.setPathEffect(new DashPathEffect(new float[]{10, 10}, 0)); // Set the dashed line pattern
+        lineSeries.setCustomPaint(paint);
+    }
+
+
+    public static void createGraph_with_target(Context context, GraphView graphView,
+                                               List<String> dateList, List<Double> infoList, double targetValue) {
+
+        DataPoint[] dataPointsArray = new DataPoint[infoList.size()];
+
+        for (int i = 0; i < infoList.size(); i++) {
+            double infoValue = infoList.get(i);
+            // Create a DataPoint object with date and weight value
+            dataPointsArray[i] = new DataPoint(i, infoValue);
+        }
+
+
+        /*
+        // making the graph scalable and scrollable
+        Viewport viewport = graphView.getViewport();
+        viewport.setScalable(true);
+        viewport.setScrollable(true);
+        viewport.setScalableY(true);
+        viewport.setScrollableY(true);
+        */
+
+        // Create a series of points for the graph
+        PointsGraphSeries<DataPoint> pointsSeries = new PointsGraphSeries<>(dataPointsArray);
+        pointsSeries.setColor(context.getResources().getColor(R.color.progress_red));
+
+        // Create a series of lines for the graph
+        LineGraphSeries<DataPoint> lineSeries = new LineGraphSeries<>(dataPointsArray);
+        lineSeries.setColor(context.getResources().getColor(R.color.progress_red));
+
+        // Add both series to the graph
+        graphView.addSeries(pointsSeries);
+        graphView.addSeries(lineSeries);
 
         // Add horizontal line for the target value
         LineGraphSeries<DataPoint> targetLineSeries = new LineGraphSeries<>(
@@ -172,6 +192,7 @@ public class Graph extends AppCompatActivity {
         graphView.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
             @Override
             public String formatLabel(double value, boolean isValueX) {
+
                 if (isValueX) {
                     int index = (int) value;
                     if (index >= 0 && index < dateLabels.length) {
@@ -185,6 +206,8 @@ public class Graph extends AppCompatActivity {
             }
         });
 
+
+        graphView.getGridLabelRenderer().setHorizontalLabelsAngle(90);
         // Configure axis and label colors
         graphView.getGridLabelRenderer().setHorizontalAxisTitleColor(context.getResources().getColor(R.color.white));
         graphView.getGridLabelRenderer().setVerticalAxisTitleColor(context.getResources().getColor(R.color.white));

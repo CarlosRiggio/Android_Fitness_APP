@@ -14,7 +14,8 @@
         android:id="@+id/image_view"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ok">
+        android:src="@drawable/ok"
+        android:contentDescription="@string/result_icon">
 
     </ImageView>
 
@@ -36,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="22"
+            android:text="@string/bmi_score"
             android:textColor="@color/white"
             android:textSize="50sp"
             android:textStyle="bold">
@@ -50,7 +51,7 @@
             android:layout_below="@id/bmidisplay"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
-            android:text="Gender"
+            android:text="@string/gender"
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="normal" />
@@ -63,7 +64,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/raleway"
-            android:text="Your BMI Category Is"
+            android:text="@string/your_bmi_category_is"
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold">
@@ -79,7 +80,7 @@
         android:layout_below="@id/contentlayout"
         android:layout_marginTop="25dp"
         android:background="@drawable/buttonbackground"
-        android:text="RECALCULATE YOUR BMI"
+        android:text="@string/recalculate_your_bmi"
         android:textSize="15sp"
         android:textColor="@color/white"
         android:fontFamily="@font/raleway"
@@ -108,7 +109,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:text="@string/_0"
         android:layout_below="@id/bmiSeekBar"
         android:layout_marginStart="20dp"
         android:textColor="@color/white"
@@ -119,7 +120,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="40"
+        android:text="@string/_40"
         android:layout_below="@id/bmiSeekBar"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="20dp"
@@ -144,7 +145,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Select which workout plan you want to do"
+            android:text="@string/select_which_workout_plan_you_want_to_do"
             android:textColor="@color/white"
             android:textSize="19sp"
             android:textStyle="bold">
@@ -163,7 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Bulk"
+                android:text="@string/bulk_text"
                 android:textColor="@color/white">
 
             </androidx.appcompat.widget.AppCompatRadioButton>
@@ -173,7 +174,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Maintenance"
+                android:text="@string/maintenance_text"
                 android:textColor="@color/white">
 
             </androidx.appcompat.widget.AppCompatRadioButton>
@@ -183,7 +184,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cut"
+                android:text="@string/cut_text"
                 android:textColor="@color/white">
 
             </androidx.appcompat.widget.AppCompatRadioButton>
@@ -198,7 +199,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="5dp"
-            android:text="suggestion here"
+            android:text="@string/suggestion_text"
             android:textAlignment="center"
             android:textColor="@color/green"
             android:textSize="16sp" />
@@ -212,7 +213,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="5dp"
             android:onClick="openWorkoutSelectionPage"
-            android:text="Calculate Workout"
+            android:text="@string/calculate_workout"
             android:textSize="16sp" />
 
     </RelativeLayout>

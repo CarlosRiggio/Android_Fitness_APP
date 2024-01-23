@@ -33,7 +33,6 @@ public class Workout extends AppCompatActivity {
     TextView workout_type_text, day_workout_text, workout_duration_text, number_exercises;
     String weight_string;
     double weight;
-    DecimalFormat df = new DecimalFormat("#.#");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,13 +119,14 @@ public class Workout extends AppCompatActivity {
 
                     switch (values[3]) {
                         case "Your bodyweight x 1/5":
-                            values[3] = values[3] + " = " + df.format(weight * 1 / 5);
+
+                            values[3] = values[3] + " = " + Math.round(weight * 1 / 5);
                             break;
                         case "Your bodyweight x 1/7":
-                            values[3] = values[3] + " = " + df.format(weight * 1 / 7);
+                            values[3] = values[3] + " = " + Math.round(weight * 1 / 7);
                             break;
                         case "Your bodyweight x 1/2":
-                            values[3] = values[3] + " = " + df.format(weight * 1 / 2);
+                            values[3] = values[3] + " = " + Math.round(weight * 1 / 2);
                             break;
                     }
 
@@ -158,7 +158,7 @@ public class Workout extends AppCompatActivity {
         dayOfWorkout += " day";
         day_workout_text.setText(dayOfWorkout);
         workout_duration_text.setText(duration);
-        numEx += " Ex";
+        numEx += " Exercises";
         number_exercises.setText(numEx);
 
         csv_file = type_day_workout;

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1E1D1D"
-    tools:context=".BMIActivity">
+    tools:context=".WorkoutSelActivity">
 
     <!--Creating horizontal line-->
     <RelativeLayout
@@ -36,10 +36,12 @@
         <ImageView
             android:layout_width="170px"
             android:layout_height="170px"
+            android:scaleX="1.65"
+            android:scaleY="1.65"
             android:layout_above="@+id/text_bulk"
             android:layout_centerInParent="true"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/male">
+            android:src="@drawable/bulk">
 
         </ImageView>
 
@@ -51,7 +53,7 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             android:id="@+id/text_bulk"
-            android:text="Muscle gain"
+            android:text="@string/muscle_gain"
             android:fontFamily="@font/raleway"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="15dp"
@@ -76,6 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="5dp"
+            app:background="@color/lift_lab_blue"
             android:id="@+id/radio_bulk_selection"
             android:visibility="gone">
 
@@ -84,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2 Day / Week Plan"
+                android:text="@string/_2_day_week_plan"
                 android:textColor="@color/white">
 
             </androidx.appcompat.widget.AppCompatRadioButton>
@@ -94,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="4 Day / Week Plan"
+                android:text="@string/_4_day_week_plan"
                 android:textColor="@color/white">
 
             </androidx.appcompat.widget.AppCompatRadioButton>
@@ -104,7 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="6 Day / Week Plan"
+                android:text="@string/_6_day_week_plan"
                 android:textColor="@color/white">
 
             </androidx.appcompat.widget.AppCompatRadioButton>
@@ -134,7 +137,9 @@
             android:layout_above="@+id/text_maint"
             android:layout_centerInParent="true"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/male">
+            android:scaleX="1.65"
+            android:scaleY="1.65"
+            android:src="@drawable/maintenance">
 
         </ImageView>
 
@@ -146,7 +151,7 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             android:id="@+id/text_maint"
-            android:text="Maintenance"
+            android:text="@string/maintenance_text"
             android:fontFamily="@font/raleway"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="15dp"
@@ -179,7 +184,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2 Day / Week Plan"
+                android:text="@string/_2_day_week_plan"
                 android:textColor="@color/white">
 
             </androidx.appcompat.widget.AppCompatRadioButton>
@@ -189,7 +194,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="4 Day / Week Plan"
+                android:text="@string/_4_day_week_plan"
                 android:textColor="@color/white">
 
             </androidx.appcompat.widget.AppCompatRadioButton>
@@ -199,7 +204,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="6 Day / Week Plan"
+                android:text="@string/_6_day_week_plan"
                 android:textColor="@color/white">
 
             </androidx.appcompat.widget.AppCompatRadioButton>
@@ -207,11 +212,6 @@
         </RadioGroup>
 
     </RelativeLayout>
-
-
-
-
-
 
     <!--Cut selection-->
     <RelativeLayout
@@ -230,10 +230,12 @@
         <ImageView
             android:layout_width="170px"
             android:layout_height="170px"
+            android:scaleX="1.65"
+            android:scaleY="1.65"
             android:layout_above="@+id/text_cut"
             android:layout_centerInParent="true"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/male">
+            android:src="@drawable/cut">
 
         </ImageView>
 
@@ -245,7 +247,7 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             android:id="@+id/text_cut"
-            android:text="Cut"
+            android:text="@string/cut_text"
             android:fontFamily="@font/raleway"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="15dp"
@@ -278,7 +280,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2 Day / Week Plan"
+                android:text="@string/_2_day_week_plan"
                 android:textColor="@color/white">
 
             </androidx.appcompat.widget.AppCompatRadioButton>
@@ -288,7 +290,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="4 Day / Week Plan"
+                android:text="@string/_4_day_week_plan"
                 android:textColor="@color/white">
 
             </androidx.appcompat.widget.AppCompatRadioButton>
@@ -298,7 +300,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="6 Day / Week Plan"
+                android:text="@string/_6_day_week_plan"
                 android:textColor="@color/white">
 
             </androidx.appcompat.widget.AppCompatRadioButton>
@@ -315,15 +317,14 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="40dp"
         android:background="@drawable/buttonbackground"
-        android:text="GO TO WORKOUT"
+        android:text="@string/go_to_workout"
         android:textSize="15sp"
         android:textColor="@color/white"
         android:fontFamily="@font/raleway"
         android:textStyle="bold"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:onClick="openSingleWorkout"
-        >
+        android:onClick="openSingleWorkout">
 
     </android.widget.Button>
 

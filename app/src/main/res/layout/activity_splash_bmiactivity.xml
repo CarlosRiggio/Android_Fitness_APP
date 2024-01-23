@@ -12,7 +12,8 @@
         android:layout_height="100dp"
         android:src="@drawable/bmifinall"
         android:layout_centerInParent="true"
-        android:id="@+id/logo">
+        android:id="@+id/bmi_logo"
+        android:contentDescription="@string/bmi_logo_descr">
         
     </ImageView>
     
@@ -20,12 +21,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="BMI CALCULATOR"
+        android:text="@string/BMI_CALCULATOR"
         android:fontFamily="@font/raleway"
         android:textStyle="bold"
         android:textSize="20sp"
         android:textColor="@color/white"
-        android:layout_below="@id/logo"
+        android:layout_below="@id/bmi_logo"
         android:layout_marginTop="30dp"
         android:lineSpacingExtra="2dp">
 

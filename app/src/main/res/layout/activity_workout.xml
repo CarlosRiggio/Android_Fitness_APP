@@ -14,7 +14,7 @@
         android:textSize="60sp"
         android:text="@string/workout"
         android:background="@drawable/cardbackground"
-        android:textColor="@color/progress_red"
+        android:textColor="@color/lift_lab_blue"
         android:gravity="center" />
 
     <!--Creating vertical line-->
@@ -40,8 +40,8 @@
             android:id="@+id/type_of_workout_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Type of workout"
-            android:textColor="@color/white"
+            android:text="@string/type_of_workout"
+            android:textColor="@color/orange"
             android:textSize="30sp"
             android:layout_alignParentStart="true"
             android:gravity="center"/>
@@ -52,8 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/type_of_workout_text"
-            android:text="Day of workout"
-            android:textColor="@color/white"
+            android:text="@string/day_of_workout"
+            android:textColor="@color/orange"
             android:textSize="30sp"
             android:layout_alignParentStart="true"
             android:gravity="center"/>
@@ -77,8 +77,8 @@
             android:id="@+id/workout_duration_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Duration of workout"
-            android:textColor="@color/white"
+            android:text="@string/duration_of_workout"
+            android:textColor="@color/orange"
             android:textSize="30sp"
             android:gravity="center"/>
 
@@ -87,8 +87,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/workout_duration_text"
-            android:text="Number of ex"
-            android:textColor="@color/white"
+            android:text="@string/number_of_ex"
+            android:textColor="@color/orange"
             android:textSize="30sp"
             android:layout_alignParentStart="true"
             android:gravity="center"/>

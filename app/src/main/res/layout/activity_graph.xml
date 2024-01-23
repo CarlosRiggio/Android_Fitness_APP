@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_centerHorizontal="true"
-            android:text="Weight"
+            android:text="@string/weight_text"
             android:textColor="@color/red_button"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_centerHorizontal="true"
-            android:text="BMI"
+            android:text="@string/bmi_text"
             android:textColor="@color/red_button"
             android:textSize="30sp"
             android:textStyle="bold" />

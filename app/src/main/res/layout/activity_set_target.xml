@@ -7,7 +7,7 @@
     android:background="@color/black_bg"
     tools:context=".SetTargetActivity">
 
-
+    <!--Title layout-->
     <RelativeLayout
         android:id="@+id/target_title"
         android:layout_width="match_parent"
@@ -23,12 +23,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:text="TARGET WEIGHT"
+            android:text="@string/target_weight_uppercase"
             android:textSize="35sp"
-            android:textColor="@color/red_button"
+            android:textColor="@color/lift_lab_blue"
+            android:textStyle="bold"
             android:fontFamily="@font/raleway"/>
     </RelativeLayout>
 
+    <!--Description layout-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,11 +47,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:text="Welcome to our weight goal feature:"
+            android:text="@string/welcom_target_text"
             android:gravity="center"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:textColor="@color/green_1"/>
+            android:textColor="@color/light_blue"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,12 +60,13 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_below="@id/text_descr1"
-            android:text="Here you can set your ideal weight target and track your transformation journey."
+            android:text="@string/set_target_text"
             android:gravity="center"
             android:textSize="20sp"
             android:textColor="@color/white" />
     </RelativeLayout>
 
+    <!--Description layout-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,13 +82,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:text="Enter the weight you aim to achieve, and let our app guide you towards success."
+            android:text="@string/aim_text"
             android:gravity="center"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/green_1"/>
+            android:textColor="@color/orange"/>
     </RelativeLayout>
 
+    <!--Weight layout-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -100,8 +104,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/red_button"
-            android:text="Weight Target"
+            android:textColor="@color/lift_lab_blue"
+            android:text="@string/target_weight_lowercase"
             android:id="@+id/text_weight"
             android:textAlignment="center"
             android:textStyle="bold"
@@ -116,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:autofillHints=""
-            android:hint="insert"
+            android:hint="@string/insert_text"
             android:inputType="numberDecimal"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -131,7 +135,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text="Kg"
+            android:text="@string/kg_text"
             android:fontFamily="@font/raleway"
             android:textAlignment="center"
             android:textStyle="bold"
@@ -161,14 +165,15 @@
             android:layout_width="159dp"
             android:layout_height="119dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/weight_taget_icon" />
+            android:src="@drawable/weight_taget_icon"
+            android:contentDescription="@string/scale_image_descr"/>
 
         <!--Quote-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text="Your journey to a healthier and stronger version of yourself starts here!"
+            android:text="@string/start_journey_text"
             android:textAlignment="center"
             android:gravity="center"
             android:layout_alignParentBottom="true"
