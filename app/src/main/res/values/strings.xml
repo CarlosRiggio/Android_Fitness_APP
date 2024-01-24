@@ -65,5 +65,17 @@
     <string name="muscle_gain">Muscle gain</string>
     <string name="food_and_workout_tips">FOOD &amp; WORKOUT TIPS</string>
     <string name="food_tips_descr_1">Unlock Your Fitness Journey: Tailored Tips for Cutting, Maintaining, and Bulking Up!</string>
+    <string name="severe_thinness">Severe Thinness</string>
+    <string name="moderate_thinness">Moderate Thinness</string>
+    <string name="mild_thinness">Mild Thinness</string>
+    <string name="underweight">Underweight</string>
+    <string name="normal">Normal</string>
+    <string name="overweight">Overweight</string>
+    <string name="obese_class_i">Obese Class I</string>
+    <string name="obese_class_ii">Obese Class II</string>
+    <string name="obese_class_iii">Obese Class III</string>
+    <string name="i_suggest_you_to_bulk">I suggest you to bulk</string>
+    <string name="i_suggest_you_to_maintain">I suggest you to maintain</string>
+    <string name="i_suggest_you_to_cut">I suggest you to cut</string>
 
 </resources>

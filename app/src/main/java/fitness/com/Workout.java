@@ -39,7 +39,7 @@ public class Workout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout);
 
-        // getting info from the intet
+        // getting info from the explicit intent
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         intent = getIntent();
         type_day_workout = intent.getStringExtra("type_day_workout_key");
@@ -58,6 +58,7 @@ public class Workout extends AppCompatActivity {
         weight_string = sharedPreferences.getString(WeightState, "");
         weight = Double.parseDouble(weight_string);
 
+        // creating the list exercises
         List<Exercise> exercises = new ArrayList<>();
 
         switch (type_day_workout) {
@@ -101,7 +102,7 @@ public class Workout extends AppCompatActivity {
         // Open the CSV file from the raw resources
         InputStream inputStream = context.getResources().openRawResource(resourceId);
 
-        // Create a BufferedReader to read the file line by line
+        // Create a BufferedReader to read the file line by line with try and resources
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             // Read and discard the header
             String header = reader.readLine();
@@ -117,9 +118,10 @@ public class Workout extends AppCompatActivity {
                     // Extract the file name without extension from the CSV
                     String imageName = values[4].split("\\.")[0];
 
+                    // calculate the weight value for the exercise multiply by a factor
                     switch (values[3]) {
                         case "Your bodyweight x 1/5":
-
+                            // converting teh values to the first integer nearby
                             values[3] = values[3] + " = " + Math.round(weight * 1 / 5);
                             break;
                         case "Your bodyweight x 1/7":
@@ -129,8 +131,6 @@ public class Workout extends AppCompatActivity {
                             values[3] = values[3] + " = " + Math.round(weight * 1 / 2);
                             break;
                     }
-
-
 
                     // Create an Exercise object and add it to the list
                     exercises.add(new Exercise(

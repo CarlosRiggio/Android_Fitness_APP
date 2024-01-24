@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.Viewport;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.PointsGraphSeries;
@@ -27,27 +26,38 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Graph extends AppCompatActivity {
+public class GraphActivity extends AppCompatActivity {
 
+    // initializing the GraphView
     private GraphView graphView_Weight;
     private GraphView graphView_BMI;
+
+    // initializing the list of data to be plotted
     private List<String> dateList = new ArrayList<>();
     private List<Double> weightList = new ArrayList<>();
     private List<Double> bmiList = new ArrayList<>();
+
+    // variable for the target weight value
     float tg_int;
     double tg;
+
+    // initializing sharedpreference object
     SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
 
         try {
+            // creating the dataslist by reading the csv file
             List<Datas> datasList = readDataFromCsv();
+
+            // finding graphView by id
             graphView_Weight = findViewById(R.id.idGraphView_Weight);
             graphView_BMI = findViewById(R.id.idGraphView_BMI);
 
-            // Llenar listas con datos
+            // adding the data to each list
             for (Datas data : datasList) {
                 dateList.add(data.getLocalData());
                 weightList.add(Double.parseDouble(data.getWeight()));
@@ -57,33 +67,37 @@ public class Graph extends AppCompatActivity {
             // getting tg from preferences
             sharedPreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
             tg_int = sharedPreferences.getFloat(ValueState, 0);
+            // converting tg from float to double
             tg = (double) tg_int;
 
-            createGraph_with_target(getApplicationContext(),graphView_Weight, dateList, weightList, tg_int);
-            createGraph(getApplicationContext(),graphView_BMI, dateList, bmiList);
+            // creating the weigth graph
+            createWeightGraph(getApplicationContext(),graphView_Weight, dateList, weightList, tg_int);
+            // creating the BMI graph
+            createBmiGraph(getApplicationContext(),graphView_BMI, dateList, bmiList);
 
         }
-        catch (IllegalArgumentException exception)
+        catch (IllegalArgumentException exception) // if no data are already registered
         {
             Toast.makeText(getApplicationContext(),"You must calculate your BMI first",Toast.LENGTH_SHORT).show();
             finish();
         }
-
-//---------------------------------------------------------------------------------------------------
     }
 
-    public static void createGraph(Context context, GraphView graphView,
+    public static void createBmiGraph(Context context, GraphView graphView,
                                    List<String> dateList, List<Double> infoList) {
 
+        // Using a DataPoint array to store easily the x-y variable
         DataPoint[] dataPointsArray = new DataPoint[infoList.size()];
+
+        // Create a DataPoint object with date and weight value
         for (int i = 0; i < infoList.size(); i++) {
             double infoValue = infoList.get(i);
-            // Create a DataPoint object with date and weight value
             dataPointsArray[i] = new DataPoint(i, infoValue);
         }
 
         /*
         // making the graph scalable and scrollable
+        // leave the comment here, it can be put in further implementation
         Viewport viewport = graphView.getViewport();
         viewport.setScalable(true);
         viewport.setScrollable(true);
@@ -97,11 +111,6 @@ public class Graph extends AppCompatActivity {
 
         // Create a series of lines for the graph
         LineGraphSeries<DataPoint> lineSeries = new LineGraphSeries<>(dataPointsArray);
-        lineSeries.setColor(context.getResources().getColor(R.color.light_blue));
-
-        // Configure graph properties
-        graphView.setTitleColor(context.getResources().getColor(R.color.white));
-        graphView.setTitleTextSize(60);
 
         // Add both series to the graph
         graphView.addSeries(pointsSeries);
@@ -131,9 +140,8 @@ public class Graph extends AppCompatActivity {
             }
         });
 
+        // configure axis labels
         graphView.getGridLabelRenderer().setHorizontalLabelsAngle(90);
-        graphView.getGridLabelRenderer().setHorizontalAxisTitleColor(context.getResources().getColor(R.color.white));
-        graphView.getGridLabelRenderer().setVerticalAxisTitleColor(context.getResources().getColor(R.color.white));
         graphView.getGridLabelRenderer().setHorizontalLabelsColor(context.getResources().getColor(R.color.white));
         graphView.getGridLabelRenderer().setVerticalLabelsColor(context.getResources().getColor(R.color.white));
 
@@ -146,21 +154,22 @@ public class Graph extends AppCompatActivity {
         lineSeries.setCustomPaint(paint);
     }
 
-
-    public static void createGraph_with_target(Context context, GraphView graphView,
+    public static void createWeightGraph(Context context, GraphView graphView,
                                                List<String> dateList, List<Double> infoList, double targetValue) {
 
+        // Using a DataPoint array to store easily the x-y variable
         DataPoint[] dataPointsArray = new DataPoint[infoList.size()];
 
+        // Create a DataPoint object with date and weight value
         for (int i = 0; i < infoList.size(); i++) {
             double infoValue = infoList.get(i);
-            // Create a DataPoint object with date and weight value
             dataPointsArray[i] = new DataPoint(i, infoValue);
         }
 
 
         /*
         // making the graph scalable and scrollable
+        // leave the comment here, it can be put in further implementation
         Viewport viewport = graphView.getViewport();
         viewport.setScalable(true);
         viewport.setScrollable(true);
@@ -174,7 +183,6 @@ public class Graph extends AppCompatActivity {
 
         // Create a series of lines for the graph
         LineGraphSeries<DataPoint> lineSeries = new LineGraphSeries<>(dataPointsArray);
-        lineSeries.setColor(context.getResources().getColor(R.color.light_blue));
 
         // Add both series to the graph
         graphView.addSeries(pointsSeries);
@@ -206,11 +214,8 @@ public class Graph extends AppCompatActivity {
             }
         });
 
-
-        graphView.getGridLabelRenderer().setHorizontalLabelsAngle(90);
         // Configure axis and label colors
-        graphView.getGridLabelRenderer().setHorizontalAxisTitleColor(context.getResources().getColor(R.color.white));
-        graphView.getGridLabelRenderer().setVerticalAxisTitleColor(context.getResources().getColor(R.color.white));
+        graphView.getGridLabelRenderer().setHorizontalLabelsAngle(90);
         graphView.getGridLabelRenderer().setHorizontalLabelsColor(context.getResources().getColor(R.color.white));
         graphView.getGridLabelRenderer().setVerticalLabelsColor(context.getResources().getColor(R.color.white));
 
@@ -223,32 +228,51 @@ public class Graph extends AppCompatActivity {
         lineSeries.setCustomPaint(paint);
     }
 
+    // reading data from csv function
     private List<Datas> readDataFromCsv() {
+        // Initialize a list to store Datas objects
         List<Datas> datasList = new ArrayList<>();
+
+        // Get the path to the external files directory
         File externalFilesDir = getExternalFilesDir(null);
+
+        // Create the full path for the CSV file
         String csvFilePath = externalFilesDir.getAbsolutePath() + "/data.csv";
 
+        // try with resources close reader after the execution of try block
         try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath))) {
             String line;
             boolean isFirstLine = true;
+
+            // Read each line from the CSV file
             while ((line = reader.readLine()) != null) {
+                // Skip the first line (header)
                 if (isFirstLine) {
                     isFirstLine = false;
                     continue;
                 }
+
+                // Split the line into parts using comma as a delimiter
                 String[] parts = line.split(",");
+
+                // Remove any quotes from the parts and extract data, weight, and bmi
                 String data = parts[0].replace("\"", "");
                 String weight = parts[1].replace("\"", "");
                 String bmi = parts[2].replace("\"", "");
+
+                // Create a new Datas object and add it to the list
                 datasList.add(new Datas(data, weight, bmi));
             }
-        } catch (IOException | NumberFormatException e) {
+        } catch (IOException | NumberFormatException e) { // catch different Exceptions
+            // Print the stack trace for IOException and NumberFormatException
             e.printStackTrace();
         }
 
+        // Return the list of Datas objects
         return datasList;
     }
 
+    // THIS WAS JUST TO SET THE CSV FOR TESTING
     public void writeDataToCsv(String data, String weight, String bmi) {
         try {
             File file = new File(getExternalFilesDir(null), "data.csv");
@@ -261,9 +285,7 @@ public class Graph extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // THIS WAS JUST TO SET THE CSV FOR TESTING
+        // leave the function here, it may be useful in further implementation, like for
+        // clearing the csv data
     }
-
-
-
 }

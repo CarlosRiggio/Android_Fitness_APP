@@ -22,7 +22,7 @@
             android:name=".Workout"
             android:exported="false" />
         <activity
-            android:name=".Graph"
+            android:name=".GraphActivity"
             android:exported="false" />
         <activity
             android:name=".SplashWorkoutActivity"

@@ -26,6 +26,8 @@ import com.opencsv.CSVWriter;
 
 public class BMIActivity extends AppCompatActivity {
 
+    /* OBSERVATION: View.OnClickListener() can be replaced with lambda expression */
+
     // list with data to write in the csv for the plotting
     private List<Datas> datiList = new ArrayList<>();
     // initializing all of View components
@@ -173,12 +175,12 @@ public class BMIActivity extends AppCompatActivity {
         incrementheight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // getting the numerical age from text
+                // getting the numerical height from text
                 string_progress = currentheight.getText().toString();
                 currentprogress = Integer.parseInt(string_progress);
-                // incrementing the age
+                // incrementing the height
                 currentprogress ++;
-                // printing the age converted
+                // printing the height converted
                 string_progress = String.valueOf(currentprogress);
                 currentheight.setText(string_progress);
 
@@ -194,12 +196,12 @@ public class BMIActivity extends AppCompatActivity {
         decrementheight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // getting the numerical age from text
+                // getting the numerical height from text
                 string_progress = currentheight.getText().toString();
                 currentprogress = Integer.parseInt(string_progress);
-                // incrementing the age
+                // incrementing the height
                 currentprogress --;
-                // printing the age converted
+                // printing the height converted
                 string_progress = String.valueOf(currentprogress);
                 currentheight.setText(string_progress);
 
@@ -229,7 +231,6 @@ public class BMIActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedpreferences.edit();
                     editor.putString(AgeState, string_age);
                     editor.apply();
-                    System.out.println(age);
                 }
                 catch (NumberFormatException exception) // age missing
                 {
@@ -265,6 +266,7 @@ public class BMIActivity extends AppCompatActivity {
 
     }
 
+    // calculating BMI score and opening result's page
     public void openBMIResult(View view){
 
         try {
@@ -290,8 +292,7 @@ public class BMIActivity extends AppCompatActivity {
             editor.putString(HeightState, string_progress);
             editor.apply();
 
-
-
+            // checking the value before calculate
             if(typeofuser.equals("0")) // no gender selected
             {
                 Toast.makeText(getApplicationContext(),"Select Your Gender First",Toast.LENGTH_SHORT).show();
@@ -300,20 +301,19 @@ public class BMIActivity extends AppCompatActivity {
             {
                 Toast.makeText(getApplicationContext(),"Select Your Height First",Toast.LENGTH_SHORT).show();
             }
-            else if(age == 0 || age < 0) // invalid age selected
+            else if(age <= 0) // invalid age selected
             {
-                System.out.println(age);
                 Toast.makeText(getApplicationContext(),"Select a Valid Age",Toast.LENGTH_SHORT).show();
             }
 
-            else if(weight == 0 || weight < 0) // invalid weight selected
+            else if(weight <= 0) // invalid weight selected
             {
                 Toast.makeText(getApplicationContext(),"Select a Valid Weight",Toast.LENGTH_SHORT).show();
             }
             else {
                 // BMI calculation (height must be in meters)
-                double height = (double) currentprogress / 100;
-                double bmi = weight / (height * height);
+                double height_meters = (double) currentprogress / 100;
+                double bmi = weight / (height_meters * height_meters);
                 // rounding to 2 decimal points
                 DecimalFormat df = new DecimalFormat("#.##");
                 String string_bmi = df.format(bmi);
@@ -327,16 +327,16 @@ public class BMIActivity extends AppCompatActivity {
                 // writing new data in the list
                 datiList.add(new Datas(date, string_weight, string_bmi));
 
-                // save the data async in the csv
+                // save the data in async way in the csv
                 new AsyncDataSave().execute();
                 Toast.makeText(this, "Data saved successfully", Toast.LENGTH_SHORT).show();
 
+                // creating the explicit intent and putting extra
                 Intent intent = new Intent(this, ResultBMIActivity.class);
                 intent.putExtra("gender", typeofuser);
                 intent.putExtra("string_bmi", string_bmi);
                 intent.putExtra("age", age);
                 startActivity(intent);
-
             }
         }
         catch (NumberFormatException exception) // missing some information
