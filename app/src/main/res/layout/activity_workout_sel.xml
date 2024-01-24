@@ -32,7 +32,7 @@
         android:layout_marginRight="20dp"
         android:id="@+id/bulk_workout">
 
-        <!--Muscle icon-->
+        <!--Increasing graph-->
         <ImageView
             android:layout_width="170px"
             android:layout_height="170px"
@@ -130,7 +130,7 @@
         android:layout_marginRight="20dp"
         android:id="@+id/maint_workout">
 
-        <!--Gym icon-->
+        <!--Constant graph-->
         <ImageView
             android:layout_width="170px"
             android:layout_height="170px"
@@ -226,7 +226,7 @@
         android:layout_marginRight="20dp"
         android:id="@+id/cut_workout">
 
-        <!--Run icon-->
+        <!--Decreasing graph-->
         <ImageView
             android:layout_width="170px"
             android:layout_height="170px"
@@ -309,7 +309,7 @@
 
     </RelativeLayout>
 
-
+    <!--Go to workout button-->
     <android.widget.Button
         android:layout_width="match_parent"
         android:layout_height="40dp"

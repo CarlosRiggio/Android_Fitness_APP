@@ -7,6 +7,7 @@
     android:background="#1e1d1d"
     tools:context=".ResultBMIActivity">
 
+    <!--Image score-->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,6 +20,7 @@
 
     </ImageView>
 
+    <!--Score layout-->
     <RelativeLayout
         android:id="@+id/contentlayout"
         android:layout_width="match_parent"
@@ -73,6 +75,7 @@
 
     </RelativeLayout>
 
+    <!--Recalculate button-->
     <android.widget.Button
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -92,6 +95,7 @@
 
     </android.widget.Button>
 
+    <!--Seekbar for score 0 (min) to 40 (max)-->
     <SeekBar
         android:id="@+id/bmiSeekBar"
         android:layout_width="match_parent"
@@ -103,7 +107,7 @@
         android:progressDrawable="@drawable/progress_drawable"
         android:max="40"
         android:thumb="@drawable/thumb_blue">
-
+        <!--We can find a way make the first part of the seekbar colored-->
     </SeekBar>
 
     <TextView
@@ -129,6 +133,7 @@
 
     </TextView>
 
+    <!--Suggestion workout plan layout-->
     <RelativeLayout
         android:id="@+id/choice_layout"
         android:layout_width="match_parent"

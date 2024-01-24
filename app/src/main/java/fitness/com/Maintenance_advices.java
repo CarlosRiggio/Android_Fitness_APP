@@ -36,6 +36,6 @@ public class Maintenance_advices extends AppCompatActivity {
                 "Set realistic and sustainable goals for long-term maintenance of your fitness level"
         };
         int randomNumber = new Random().nextInt(20);
-        ((TextView) findViewById(R.id.advice_maintain)).setText(strings[randomNumber]);
+        ((TextView) findViewById(R.id.advice_maint)).setText(strings[randomNumber]);
     }
 }

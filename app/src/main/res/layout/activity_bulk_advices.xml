@@ -1,42 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context=".Bulk_advices"
     android:background="@color/black_bg">
 
+    <!--Title-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/cardbackground">
+        android:layout_height="wrap_content"
+        android:background="@drawable/cardbackground"
+        android:id="@+id/tipLabel">
 
         <TextView
-            android:id="@+id/tipLabel"
             android:layout_width="match_parent"
-            android:layout_height="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
             android:text="@string/tips"
             android:textSize="50sp"
             android:textColor="@color/orange"/>
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/advice_bulk"
+    <!--Tip layout-->
+    <RelativeLayout
+        android:id="@+id/tip_text"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tipLabel"
-        android:textAlignment="center"
-        android:textSize="30sp"
+        android:background="@drawable/cardbackground"
         android:layout_marginTop="40dp"
-        android:textColor="@color/white" />
+        >
 
-    <ImageView
-        android:id="@+id/imageView"
+        <TextView
+            android:id="@+id/advice_bulk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+    <!--Image layout-->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/bulk_tips"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tip_text"
+        >
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="234dp"
+            android:src="@drawable/bulk_tips"
+            android:contentDescription="@string/image_tips_descr"/>
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

@@ -44,7 +44,7 @@ public class SetTargetActivity extends AppCompatActivity {
                 editor.apply();
 
                 // Show a toast message
-                Toast.makeText(SetTargetActivity.this, "Target set to " + apo + "Kg", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SetTargetActivity.this, "Target set to " + apo + " Kg", Toast.LENGTH_SHORT).show();
 
                 return true;
             }

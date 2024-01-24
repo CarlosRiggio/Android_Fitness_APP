@@ -201,6 +201,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:hint="@string/insert_text"
+            android:autofillHints="insert"
             android:inputType="number"
             android:textAlignment="center"
             android:textColor="@color/white"

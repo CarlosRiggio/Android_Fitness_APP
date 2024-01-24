@@ -78,5 +78,5 @@
     <string name="i_suggest_you_to_maintain">I suggest you to maintain</string>
     <string name="i_suggest_you_to_cut">I suggest you to cut</string>
     <string name="tips">Tip of the day</string>
-
+    <string name="image_tips_descr">image_tips_descr</string>
 </resources>

@@ -7,6 +7,7 @@
     android:background="@color/black_bg"
     tools:context=".Workout">
 
+    <!--Title-->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
@@ -82,6 +83,7 @@
             android:textSize="30sp"
             android:gravity="center"/>
 
+        <!--Number of exercises-->
         <TextView
             android:id="@+id/number_of_exercises"
             android:layout_width="match_parent"
@@ -94,7 +96,7 @@
             android:gravity="center"/>
     </RelativeLayout>
 
-
+    <!--Recylce view-->
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@id/workout_attributes1"
         android:id="@+id/recyclerview"
