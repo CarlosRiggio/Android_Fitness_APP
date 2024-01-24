@@ -2,13 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="custom_blue">#0C91E0</color>
+    <color name="lift_lab_blue">#0C91E0</color>
     <color name="halfwarn">#483FC8</color>
     <color name="warn">#FF1313</color>
     <color name="progress_red">#e32222</color>
     <color name="green">#28de49</color>
     <color name="black_bg">#1E1D1D</color>
     <color name="green_1">#64e87c</color>
+    <color name="red_button">#FF4C4C</color>
+    <color name="light_blue">#51bad7</color>
+    <color name="orange">#df5526</color>
 
 
 </resources>

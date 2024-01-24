@@ -52,7 +52,7 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             android:id="@+id/text_male"
-            android:text="Male"
+            android:text="@string/male_text"
             android:fontFamily="@font/raleway"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="10dp"
@@ -94,7 +94,7 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             android:id="@+id/text_female"
-            android:text="Female"
+            android:text="@string/female_text"
             android:fontFamily="@font/raleway"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="10dp"
@@ -123,7 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text="Weight"
+            android:text="@string/weight_text"
             android:fontFamily="@font/raleway"
             android:id="@+id/text_weight"
             android:textAlignment="center"
@@ -139,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:autofillHints=""
-            android:hint="insert"
+            android:hint="@string/insert_text"
             android:inputType="numberDecimal"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -154,7 +154,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text="Kg"
+            android:text="@string/kg_text"
             android:fontFamily="@font/raleway"
             android:textAlignment="center"
             android:textStyle="bold"
@@ -185,7 +185,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text="Age"
+            android:text="@string/age_text"
             android:fontFamily="@font/raleway"
             android:id="@+id/text_age"
             android:textAlignment="center"
@@ -200,7 +200,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:hint="insert"
+            android:hint="@string/insert_text"
             android:inputType="number"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -224,7 +224,8 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/minus"
-                android:id="@+id/decrement_age">
+                android:id="@+id/decrement_age"
+                android:contentDescription="@string/minus_icon_descr">
 
             </ImageView>
 
@@ -245,7 +246,8 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/add"
-                android:id="@+id/increment_age">
+                android:id="@+id/increment_age"
+                android:contentDescription="@string/plus_icon_descr">
 
             </ImageView>
 
@@ -270,7 +272,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Height"
+            android:text="@string/height_text"
             android:textSize="20sp"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -284,7 +286,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
             android:layout_marginBottom="50dp"
-            android:text="170"
+            android:text="@string/initial_170"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:textStyle="bold" />
@@ -293,13 +295,56 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="cm"
+            android:text="@string/cm_text"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_toEndOf="@id/current_height"
             android:layout_marginStart="20dp"
             android:layout_centerInParent="true"
             android:textColor="@color/white" />
+
+        <!--Minus icon-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/plusminus"
+            android:layout_marginBottom="65dp">
+
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/minus"
+                android:id="@+id/decrement_height"
+                android:contentDescription="@string/minus_icon_descr">
+
+            </ImageView>
+
+        </RelativeLayout>
+
+        <!--Plus icon-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="20dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/plusminus"
+            android:layout_marginBottom="65dp">
+
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/add"
+                android:id="@+id/increment_height"
+                android:contentDescription="@string/plus_icon_descr">
+
+            </ImageView>
+
+        </RelativeLayout>
 
         <!--SeekBar created-->
         <SeekBar
@@ -308,7 +353,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="10dp"
-            android:progressTint="#FF4C4C"
+            android:progressTint="@color/light_blue"
             android:thumbTint="@color/white"
             android:layout_marginRight="10dp"
             android:id="@+id/seekbar_for_height">
@@ -326,7 +371,7 @@
         android:layout_alignParentBottom="true"
         android:textSize="15sp"
         android:layout_marginBottom="15dp"
-        android:text="Calculate your BMI"
+        android:text="@string/calculate_your_bmi"
         android:textColor="@color/white"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"

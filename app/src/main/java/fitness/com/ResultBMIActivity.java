@@ -17,9 +17,12 @@ import android.widget.Toast;
 
 public class ResultBMIActivity extends AppCompatActivity {
 
+    // initializing all of the view
     TextView bmi_display, bmi_category, gender_display, suggestion_display;
-    Intent intent;
     ImageView imageView;
+
+    // initializing the explicit intent to receive
+    Intent intent;
     String string_bmi;
     double bmi;
     int age;
@@ -29,14 +32,12 @@ public class ResultBMIActivity extends AppCompatActivity {
     RadioGroup rdgroup;
     int radio_sel_id;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_bmiactivity);
 
-        intent = getIntent();
-
+        // finding view by id
         imageView = findViewById(R.id.image_view);
         bmi_display = findViewById(R.id.bmidisplay);
         bmi_category = findViewById(R.id.bmicategorydispaly);
@@ -46,6 +47,8 @@ public class ResultBMIActivity extends AppCompatActivity {
         rdgroup = findViewById(R.id.radio_group);
         rdgroup.clearCheck();
 
+        // getting the intent
+        intent = getIntent();
         string_bmi = intent.getStringExtra("string_bmi");
         bmi = Double.parseDouble(string_bmi);
         gender = intent.getStringExtra("gender");
@@ -67,7 +70,7 @@ public class ResultBMIActivity extends AppCompatActivity {
             // bmi score for male
             if(bmi < 16)
             {
-                bmi_category.setText("Severe Thinness");
+                bmi_category.setText(R.string.severe_thinness);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.warn_background, null));
                 imageView.setImageResource(R.drawable.crosss);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
@@ -75,7 +78,7 @@ public class ResultBMIActivity extends AppCompatActivity {
             }
             else if(bmi < 16.9 && bmi > 16)
             {
-                bmi_category.setText("Moderate Thinness");
+                bmi_category.setText(R.string.moderate_thinness);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
@@ -83,49 +86,49 @@ public class ResultBMIActivity extends AppCompatActivity {
             }
             else if(bmi < 18.4 && bmi > 17)
             {
-                bmi_category.setText("Mild Thinness");
+                bmi_category.setText(R.string.mild_thinness);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
             }
             else if(bmi < 20 && bmi > 18.5)
             {
-                bmi_category.setText("Underweight");
+                bmi_category.setText(R.string.underweight);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_yellow, null);
             }
             else if(bmi < 24.9 && bmi > 20.1)
             {
-                bmi_category.setText("Normal");
+                bmi_category.setText(R.string.normal);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.ok_background, null));
                 imageView.setImageResource(R.drawable.ok);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_green, null);
             }
             else if(bmi < 29.9 && bmi > 25)
             {
-                bmi_category.setText("Overweight");
+                bmi_category.setText(R.string.overweight);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_yellow, null);
             }
             else if(bmi < 35 && bmi > 30)
             {
-                bmi_category.setText("Obese Class I");
+                bmi_category.setText(R.string.obese_class_i);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_yellow, null);
             }
             else if (bmi < 40 && bmi > 35)
             {
-                bmi_category.setText("Obese Class II");
+                bmi_category.setText(R.string.obese_class_ii);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.warn_background, null));
                 imageView.setImageResource(R.drawable.crosss);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
             }
             else
             {
-                bmi_category.setText("Obese Class III");
+                bmi_category.setText(R.string.obese_class_iii);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.warn_background, null));
                 imageView.setImageResource(R.drawable.crosss);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
@@ -136,7 +139,7 @@ public class ResultBMIActivity extends AppCompatActivity {
             // bmi score for female
             if(bmi < 16)
             {
-                bmi_category.setText("Severe Thinness");
+                bmi_category.setText(R.string.severe_thinness);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.warn_background, null));
                 imageView.setImageResource(R.drawable.crosss);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
@@ -144,7 +147,7 @@ public class ResultBMIActivity extends AppCompatActivity {
             }
             else if(bmi < 16.9 && bmi > 16)
             {
-                bmi_category.setText("Moderate Thinness");
+                bmi_category.setText(R.string.moderate_thinness);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
@@ -152,65 +155,66 @@ public class ResultBMIActivity extends AppCompatActivity {
             }
             else if(bmi < 17.9 && bmi > 17)
             {
-                bmi_category.setText("Mild Thinness");
+                bmi_category.setText(R.string.mild_thinness);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
             }
             else if(bmi < 18.7 && bmi > 17.9)
             {
-                bmi_category.setText("Underweight");
+                bmi_category.setText(R.string.underweight);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_yellow, null);
             }
             else if(bmi < 23.8 && bmi > 18.7)
             {
-                bmi_category.setText("Normal");
+                bmi_category.setText(R.string.normal);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.ok_background, null));
                 imageView.setImageResource(R.drawable.ok);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_green, null);
             }
             else if(bmi < 28.6 && bmi > 23.8)
             {
-                bmi_category.setText("Overweight");
+                bmi_category.setText(R.string.overweight);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_yellow, null);
             }
             else if(bmi < 35 && bmi > 28.6)
             {
-                bmi_category.setText("Obese Class I");
+                bmi_category.setText(R.string.obese_class_i);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.half_warn_background, null));
                 imageView.setImageResource(R.drawable.warning);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_yellow, null);
             }
             else if (bmi < 40 && bmi > 35)
             {
-                bmi_category.setText("Obese Class II");
+                bmi_category.setText(R.string.obese_class_ii);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.warn_background, null));
                 imageView.setImageResource(R.drawable.crosss);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
             }
             else
             {
-                bmi_category.setText("Obese Class III");
+                bmi_category.setText(R.string.obese_class_iii);
                 background.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.warn_background, null));
                 imageView.setImageResource(R.drawable.crosss);
                 progressDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.progress_red, null);
             }
         }
 
-
+        // finding the seekbar and setting the progress
         bmiSeekBar = findViewById(R.id.bmiSeekBar);
         bmiSeekBar.setEnabled(false);
         int calculatedBMI = (int) bmi;
         bmiSeekBar.setProgress(calculatedBMI);
-
-
         bmiSeekBar.setProgressDrawable(progressDrawable);
 
+        // showing gender
         gender_display.setText(gender);
+
+        // showing numerical bmi score
         bmi_display.setText(string_bmi);
     }
 
@@ -292,15 +296,15 @@ public class ResultBMIActivity extends AppCompatActivity {
 
         if (category.equals("Severe Thinness") || category.equals("Moderate Thinness") || category.equals("Mild Thinness") || category.equals("Underweight"))
         {
-            suggestion_display.setText("I suggest you to bulk");
+            suggestion_display.setText(R.string.i_suggest_you_to_bulk);
         }
         else if (category.equals("Normal"))
         {
-            suggestion_display.setText("I suggest you to maintain");
+            suggestion_display.setText(R.string.i_suggest_you_to_maintain);
         }
         else
         {
-            suggestion_display.setText("I suggest you to cut");
+            suggestion_display.setText(R.string.i_suggest_you_to_cut);
         }
     }
 

@@ -14,13 +14,10 @@ public class SplashWorkoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_workout);
 
         // Intent to splash activity that last 1.5s
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(SplashWorkoutActivity.this, WorkoutSelActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(SplashWorkoutActivity.this, WorkoutSelActivity.class);
+            startActivity(intent);
+            finish();
         },1500);
     }
 }

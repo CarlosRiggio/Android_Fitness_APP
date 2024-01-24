@@ -2,19 +2,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    >
+    android:background="@color/black_bg">
 
-    <!-- Título -->
+    <!-- Title -->
     <TextView
         android:id="@+id/title_Excercise"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ejercicio 1"
-        android:textSize="30dp"
+        android:text="@string/title_exercise"
+        android:textSize="30sp"
+        android:textColor="@color/light_blue"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
 
-    <!-- Imagen debajo del título y a la izquierda -->
+    <!-- Image exercise -->
     <ImageView
         android:id="@+id/imageView_Excercise"
         android:layout_width="103dp"
@@ -22,44 +23,50 @@
         android:layout_below="@id/title_Excercise"
         android:layout_alignParentStart="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/logo_main" />
+        android:contentDescription="@string/exercise_picture_descr"/>
 
-    <!-- Texto 1 alineado a la derecha de la imagen -->
+    <!-- Text 1 for the Set x Rep to do -->
     <TextView
         android:id="@+id/rep_Excercise"
         android:layout_width="match_parent"
         android:layout_height="33dp"
-        android:layout_toRightOf="@id/imageView_Excercise"
+        android:layout_toEndOf="@id/imageView_Excercise"
         android:layout_below="@id/title_Excercise"
-        android:text="Texto 1" />
+        android:text="@string/text_setsxreps"
+        android:textColor="@color/white"
+        android:layout_marginStart="20dp"/>
 
-    <!-- Texto 2 alineado a la derecha de la imagen -->
+
+    <!-- Text 2 for the rest time between each sets -->
     <TextView
         android:id="@+id/recovery_t_Excercise"
         android:layout_width="match_parent"
         android:layout_height="33dp"
-        android:layout_toRightOf="@id/imageView_Excercise"
+        android:layout_toEndOf="@id/imageView_Excercise"
         android:layout_below="@id/imageView_Excercise"
         android:layout_marginTop="-66dp"
-        android:text="Texto 2" />
+        android:text="@string/recovery_time"
+        android:textColor="@color/white"
+        android:layout_marginStart="20dp"/>
 
-    <!-- Texto 3 alineado a la derecha de la imagen -->
+    <!-- Text 3 for the Kg to use in the exercise -->
     <TextView
         android:id="@+id/weight_Excercise"
         android:layout_width="match_parent"
         android:layout_height="33dp"
-        android:layout_toRightOf="@id/imageView_Excercise"
+        android:layout_toEndOf="@id/imageView_Excercise"
         android:layout_below="@id/imageView_Excercise"
         android:layout_marginTop="-33dp"
-        android:text="Texto 3" />
+        android:text="@string/kg_text"
+        android:textColor="@color/white"
+        android:layout_marginStart="20dp"/>
 
+    <!-- little space between each exercises -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_below="@id/imageView_Excercise"
         android:layout_marginTop="2dp"
         android:background="@color/black"/>
-
-
 
 </RelativeLayout>

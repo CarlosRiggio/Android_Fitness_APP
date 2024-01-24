@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_bg"
+    tools:context=".SetTargetActivity">
+
+    <!--Title layout-->
+    <RelativeLayout
+        android:id="@+id/target_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cardbackground"
+        android:textColor="@color/progress_red"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="@string/target_weight_uppercase"
+            android:textSize="35sp"
+            android:textColor="@color/lift_lab_blue"
+            android:textStyle="bold"
+            android:fontFamily="@font/raleway"/>
+    </RelativeLayout>
+
+    <!--Description layout-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/first_description"
+        android:layout_below="@id/target_title"
+        android:background="@drawable/cardbackground"
+        android:textColor="@color/progress_red"
+        android:padding="10dp"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/text_descr1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="@string/welcom_target_text"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/light_blue"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_below="@id/text_descr1"
+            android:text="@string/set_target_text"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <!--Description layout-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/third_description"
+        android:layout_below="@id/first_description"
+        android:background="@drawable/cardbackground"
+        android:textColor="@color/progress_red"
+        android:padding="10dp"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="@string/aim_text"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/orange"/>
+    </RelativeLayout>
+
+    <!--Weight layout-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/third_description"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/cardbackground"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/weight_target">
+
+        <!--Weight title-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/lift_lab_blue"
+            android:text="@string/target_weight_lowercase"
+            android:id="@+id/text_weight"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:layout_marginTop="15dp">
+        </TextView>
+
+        <!--Weight Target edit text-->
+        <EditText
+            android:id="@+id/editTextTarget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:autofillHints=""
+            android:hint="@string/insert_text"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="#fce1dc"
+            android:textSize="30sp"
+            android:textStyle="bold">
+
+        </EditText>
+
+        <!--Kg label-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/kg_text"
+            android:fontFamily="@font/raleway"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp">
+        </TextView>
+    </RelativeLayout>
+
+    <!--scale and quote-->
+    <RelativeLayout
+        android:id="@+id/scale_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/weight_target"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/cardbackground"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        >
+
+        <!--Image-->
+        <ImageView
+            android:id="@+id/scaleImage"
+            android:layout_width="159dp"
+            android:layout_height="119dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/weight_taget_icon"
+            android:contentDescription="@string/scale_image_descr"/>
+
+        <!--Quote-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/start_journey_text"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:textSize="20sp"
+            android:layout_toEndOf="@id/scaleImage"
+            android:layout_marginEnd="10dp">
+        </TextView>
+    </RelativeLayout>
+
+
+</RelativeLayout>

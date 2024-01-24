@@ -64,8 +64,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void openGraph(View view){
-        Intent intent_main_to_graph = new Intent(MainActivity.this, Graph.class);
-        startActivity(intent_main_to_graph);
+        Intent intent = new Intent(MainActivity.this, GraphActivity.class);
+        startActivity(intent);
+    }
+
+    public void openSetTargetActivity(View view){
+        Intent intent = new Intent(this, SetTargetActivity.class);
+        startActivity(intent);
+    }
+
+    public void openFoodWorkoutTips(View view) {
+        Intent intent = new Intent(this, FoodWorkoutTipsActivity.class);
+        startActivity(intent);
     }
 
 }

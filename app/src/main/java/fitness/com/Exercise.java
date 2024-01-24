@@ -2,11 +2,11 @@ package fitness.com;
 
 public class Exercise {
 
-    String name;
-    String rep;
-    String recovery_t;
-    String weight;
-    int image;
+    private String name;
+    private String rep;
+    private String recovery_t;
+    private String weight;
+    private int image;
 
     public Exercise(String name, String rep, String recovery_t, String weight, int image) {
         this.name = name;

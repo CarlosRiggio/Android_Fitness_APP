@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
@@ -13,6 +12,7 @@ import android.widget.Toast;
 
 public class WorkoutSelActivity extends AppCompatActivity {
 
+    /* OBSERVATION: View.OnClickListener() can be replaced with lambda expression */
     RadioGroup radio_bulk, radio_maint, radio_cut;
     int radio_sel_id, age;
     int radio_bulk_prev_id, radio_maint_prev_id, radio_cut_prev_id;
@@ -43,7 +43,7 @@ public class WorkoutSelActivity extends AppCompatActivity {
         radio_maint_prev_id = intent.getIntExtra("maint_id", -999);
         radio_cut_prev_id = intent.getIntExtra("cut_id", -999);
 
-
+        // suggestion logic
         suggestionLogic(radio_sel_id, age, radio_bulk_prev_id, radio_maint_prev_id, radio_cut_prev_id);
 
         // clicking muscle gain button
@@ -113,6 +113,7 @@ public class WorkoutSelActivity extends AppCompatActivity {
             radio_cut.setVisibility(View.INVISIBLE);
             radio_maint.setVisibility(View.INVISIBLE);
 
+            // workout plan selection based on the age
             if(age > 15 && age < 35)
             {
                 radio_bulk.check(R.id.rd_bulk_6d);
@@ -124,6 +125,7 @@ public class WorkoutSelActivity extends AppCompatActivity {
             else
             {
                 radio_bulk.check(R.id.rd_bulk_2d);
+                publishToastMessage("Be careful on the exercises");
             }
         }
         else if(radio_sel_id == radio_maint_prev_id && radio_sel_id != -999)
@@ -139,6 +141,7 @@ public class WorkoutSelActivity extends AppCompatActivity {
             radio_cut.setVisibility(View.INVISIBLE);
             radio_maint.setVisibility(View.VISIBLE);
 
+            // workout plan selection based on the age
             if(age > 15 && age < 35)
             {
                 radio_maint.check(R.id.rd_maint_6d);
@@ -150,6 +153,7 @@ public class WorkoutSelActivity extends AppCompatActivity {
             else
             {
                 radio_maint.check(R.id.rd_maint_2d);
+                publishToastMessage("Be careful on the exercises");
             }
         }
         else if (radio_sel_id == radio_cut_prev_id && radio_sel_id != -999)
@@ -165,6 +169,7 @@ public class WorkoutSelActivity extends AppCompatActivity {
             radio_cut.setVisibility(View.VISIBLE);
             radio_maint.setVisibility(View.INVISIBLE);
 
+            // workout plan selection based on the age
             if(age > 15 && age < 35)
             {
                 radio_cut.check(R.id.rd_cut_6d);
@@ -176,6 +181,7 @@ public class WorkoutSelActivity extends AppCompatActivity {
             else
             {
                 radio_cut.check(R.id.rd_cut_2d);
+                publishToastMessage("Be careful on the exercises");
             }
         }
     }
@@ -187,24 +193,24 @@ public class WorkoutSelActivity extends AppCompatActivity {
             if(radio_bulk.getCheckedRadioButtonId() == R.id.rd_bulk_2d)
             {
                 // 2d bulk plan page
-                type_day_workout = "2d_bulk";
+                type_day_workout = "d2_bulk";
                 openIntentWorkout();
             }
             else if(radio_bulk.getCheckedRadioButtonId() == R.id.rd_bulk_4d)
             {
                 // 4d bulk plan page
-                type_day_workout = "4d_bulk";
+                type_day_workout = "d4_bulk";
                 openIntentWorkout();
             }
             else if(radio_bulk.getCheckedRadioButtonId() == R.id.rd_bulk_6d)
             {
                 // 6d bulk plan page
-                type_day_workout = "6d_bulk";
+                type_day_workout = "d6_bulk";
                 openIntentWorkout();
             }
             else
             {
-                Toast.makeText(this, "Select a workout plan", Toast.LENGTH_SHORT).show();
+                publishToastMessage("Select a workout plan");
             }
         }
         else if(typeofworkout.equals("Maint"))
@@ -212,24 +218,24 @@ public class WorkoutSelActivity extends AppCompatActivity {
             if(radio_maint.getCheckedRadioButtonId() == R.id.rd_maint_2d)
             {
                 // 2d maint plan page
-                type_day_workout = "2d_maint";
+                type_day_workout = "d2_maint";
                 openIntentWorkout();
             }
             else if(radio_maint.getCheckedRadioButtonId() == R.id.rd_maint_4d)
             {
                 // 4d maint plan page
-                type_day_workout = "4d_maint";
+                type_day_workout = "d4_maint";
                 openIntentWorkout();
             }
             else if(radio_maint.getCheckedRadioButtonId() == R.id.rd_maint_6d)
             {
                 // 6d maint plan page
-                type_day_workout = "6d_maint";
+                type_day_workout = "d6_maint";
                 openIntentWorkout();
             }
             else
             {
-                Toast.makeText(this, "Select a workout plan", Toast.LENGTH_SHORT).show();
+                publishToastMessage("Select a workout plan");
             }
         }
         else if(typeofworkout.equals("Cut"))
@@ -237,29 +243,29 @@ public class WorkoutSelActivity extends AppCompatActivity {
             if(radio_cut.getCheckedRadioButtonId() == R.id.rd_cut_2d)
             {
                 // 2d cut plan page
-                type_day_workout = "2d_cut";
+                type_day_workout = "d2_cut";
                 openIntentWorkout();
             }
             else if(radio_cut.getCheckedRadioButtonId() == R.id.rd_cut_4d)
             {
                 // 4d cut plan page
-                type_day_workout = "4d_cut";
+                type_day_workout = "d4_cut";
                 openIntentWorkout();
             }
             else if(radio_cut.getCheckedRadioButtonId() == R.id.rd_cut_6d)
             {
                 // 6d cut plan page
-                type_day_workout = "6d_cut";
+                type_day_workout = "d6_cut";
                 openIntentWorkout();
             }
             else
             {
-                Toast.makeText(this, "Select a workout plan", Toast.LENGTH_SHORT).show();
+                publishToastMessage("Select a workout plan");
             }
         }
         else
         {
-            Toast.makeText(this, "Select a workout plan", Toast.LENGTH_SHORT).show();
+            publishToastMessage("Select a workout plan");
         }
     }
 
@@ -267,6 +273,10 @@ public class WorkoutSelActivity extends AppCompatActivity {
         Intent intent_to_exercise = new Intent(this, Workout.class);
         intent_to_exercise.putExtra("type_day_workout_key", type_day_workout);
         startActivity(intent_to_exercise);
+    }
+
+    public void publishToastMessage(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 }
