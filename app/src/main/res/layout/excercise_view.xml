@@ -22,7 +22,7 @@
         android:layout_below="@id/title_Excercise"
         android:layout_alignParentStart="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/logo_main" />
+        android:src="@drawable/liftlab_launcher" />
 
     <!-- Texto 1 alineado a la derecha de la imagen -->
     <TextView

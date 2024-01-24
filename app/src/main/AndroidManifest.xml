@@ -13,6 +13,15 @@
         android:theme="@style/Theme.Fitness"
         tools:targetApi="31">
         <activity
+            android:name=".Maintenance_advices"
+            android:exported="false" />
+        <activity
+            android:name=".Cut_advices"
+            android:exported="false" />
+        <activity
+            android:name=".Bulk_advices"
+            android:exported="false" />
+        <activity
             android:name=".FoodWorkoutTipsActivity"
             android:exported="false" />
         <activity

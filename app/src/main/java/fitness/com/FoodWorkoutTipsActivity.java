@@ -14,20 +14,20 @@ public class FoodWorkoutTipsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food_workout_tips);
     }
 
-    /*
+
     public void openBulkTips(View view) {
-        Intent intent = new Intent(this, BulkAdvicesActivity.class);
+        Intent intent = new Intent(this, Bulk_advices.class);
         startActivity(intent);
     }
 
     public void openMaintenanceTips(View view) {
-        Intent intent = new Intent(this, MaintenanceAdvicesActivity.class);
+        Intent intent = new Intent(this, Maintenance_advices.class);
         startActivity(intent);
     }
 
     public void openCutTips(View view) {
-        Intent intent = new Intent(this, CutAdvicesActivity.class);
+        Intent intent = new Intent(this, Cut_advices.class);
         startActivity(intent);
     }
-    */
+
 }

@@ -68,7 +68,8 @@
             android:textColor="@color/white"
             android:textSize="30sp"
             app:cornerRadius="10dp"
-            app:backgroundTint="@color/lift_lab_blue"/>
+            app:backgroundTint="@color/lift_lab_blue"
+            android:onClick="openBulkTips"/>
 
         <Button
             android:id="@+id/maintenanceButton"
@@ -81,7 +82,8 @@
             android:textColor="@color/white"
             android:textSize="30sp"
             app:cornerRadius="10dp"
-            app:backgroundTint="@color/lift_lab_blue"/>
+            app:backgroundTint="@color/lift_lab_blue"
+            android:onClick="openMaintenanceTips"/>
 
         <Button
             android:id="@+id/cutButton"
@@ -94,7 +96,8 @@
             android:textColor="@color/white"
             android:textSize="30sp"
             app:cornerRadius="10dp"
-            app:backgroundTint="@color/lift_lab_blue"/>
+            app:backgroundTint="@color/lift_lab_blue"
+            android:onClick="openCutTips"/>
 
     </RelativeLayout>
 
