@@ -54,9 +54,17 @@ public class Workout extends AppCompatActivity {
         Context context = getApplicationContext();
 
         // getting preferences
-        sharedPreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
-        weight_string = sharedPreferences.getString(WeightState, "");
-        weight = Double.parseDouble(weight_string);
+        try {
+            sharedPreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
+            weight_string = sharedPreferences.getString(WeightState, "");
+            weight = Double.parseDouble(weight_string);
+        }
+        catch (NumberFormatException exception)
+        {
+            Toast.makeText(getApplicationContext(),"You must calculate your BMI first",Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
 
         // creating the list exercises
         List<Exercise> exercises = new ArrayList<>();
