@@ -233,7 +233,7 @@ public class GraphActivity extends AppCompatActivity {
         // Initialize a list to store Datas objects
         List<Datas> datasList = new ArrayList<>();
 
-        // Get the path to the external files directory
+        // Get the path to the external files directory, null is for searching the main directory
         File externalFilesDir = getExternalFilesDir(null);
 
         // Create the full path for the CSV file
@@ -283,6 +283,7 @@ public class GraphActivity extends AppCompatActivity {
 
             bufferedWriter.close();
         } catch (IOException e) {
+            // printing in the standard error logcat the stack trace of the exception thrown
             e.printStackTrace();
         }
         // leave the function here, it may be useful in further implementation, like for
