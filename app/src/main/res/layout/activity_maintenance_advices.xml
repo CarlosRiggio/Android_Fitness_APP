@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="234dp"
-            android:src="@drawable/bulk_tips"
+            android:src="@drawable/maintenance_tips"
             android:contentDescription="@string/image_tips_descr"/>
 
     </RelativeLayout>
