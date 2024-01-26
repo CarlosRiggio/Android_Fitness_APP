@@ -328,6 +328,7 @@ public class BMIActivity extends AppCompatActivity {
                 datiList.add(new Datas(date, string_weight, string_bmi));
 
                 // save the data in async way in the csv
+                // common practice in Android to avoid freezing of the UI during operations which can take some time
                 new AsyncDataSave().execute();
                 Toast.makeText(this, "Data saved successfully", Toast.LENGTH_SHORT).show();
 
@@ -346,9 +347,12 @@ public class BMIActivity extends AppCompatActivity {
     }
 
 
-    // class that save the data in async way
+    // class that save the data in async way, extend AsyncTask<Params, Progress, Results>
+    // no param, no progress, no results provide in this intern class
     private class AsyncDataSave extends AsyncTask<Void, Void, Void> {
         @Override
+        // execution of this function in separated thread from the UI thread
+        // Void output Voids array object as input
         protected Void doInBackground(Void... voids) {
             saveDataInCSV();
             return null;
@@ -358,16 +362,18 @@ public class BMIActivity extends AppCompatActivity {
     // method that handle the writing of new data inside CSV file
     private void saveDataInCSV() {
         try {
+            // creating file object at external path accessible only from the app named data.csv
             File file = new File(getExternalFilesDir(null), "data.csv");
 
             // check if the file already exist
             boolean isFileExist = file.exists();
 
-            // FileWriter opened in append mode
+            // FileWriter object opened in append mode for file Object
             FileWriter fileWriter = new FileWriter(file, true);
+            // CSVWriter object is created in order to simplify the writing on the csv file
             CSVWriter csvWriter = new CSVWriter(fileWriter);
 
-            // Write itentation if file don't exist yet
+            // Write indentation if file don't exist yet
             if (!isFileExist) {
                 csvWriter.writeNext(new String[]{"Data", "Weight", "BMI"});
             }
@@ -380,6 +386,7 @@ public class BMIActivity extends AppCompatActivity {
             // Close writer
             csvWriter.close();
         } catch (IOException e) {
+            // printing in the standard error logcat the stack trace of the exception thrown
             e.printStackTrace();
         }
     }

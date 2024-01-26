@@ -108,6 +108,7 @@ public class Workout extends AppCompatActivity {
         List<Exercise> exercises = new ArrayList<>();
 
         // Open the CSV file from the raw resources
+        // this is a static way to read, but not to modify
         InputStream inputStream = context.getResources().openRawResource(resourceId);
 
         // Create a BufferedReader to read the file line by line with try and resources
@@ -120,11 +121,16 @@ public class Workout extends AppCompatActivity {
             while ((line = reader.readLine()) != null) {
                 // Split the line into an array of values using semicolon as the delimiter
                 String[] values = line.split(";");
+                for (int i = 0; i < values.length; i++){
+                    System.out.println("canos: " + values[i]);
+                }
 
                 // Check if the array has enough elements before accessing them
                 if (values.length >= 5) {
                     // Extract the file name without extension from the CSV
                     String imageName = values[4].split("\\.")[0];
+
+                    System.out.println("image: " + imageName);
 
                     // calculate the weight value for the exercise multiply by a factor
                     switch (values[3]) {
