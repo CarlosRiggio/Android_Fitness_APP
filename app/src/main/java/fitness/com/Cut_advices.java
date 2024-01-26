@@ -33,7 +33,11 @@ public class Cut_advices extends AppCompatActivity {
                 "Include omega-3-rich foods like salmon to promote fat burning",
                 "Seek the support of a personal trainer or group to stay motivated during the weight loss journey"
         };
-        int randomNumber = new Random().nextInt(20);
+        int randomNumber = new Random().nextInt(strings.length);
+
+        // further implementation may be a daily notification that remember the user to see the
+        // daily advice
+        // additionally changing the textView by tapping some specific area of the page
         ((TextView) findViewById(R.id.advice_cut)).setText(strings[randomNumber]);
     }
 }

@@ -35,7 +35,11 @@ public class Bulk_advices extends AppCompatActivity {
                 "Be consistent, muscle growth takes time and consistent effort"
         };
 
-        int randomNumber = new Random().nextInt(20);
+        int randomNumber = new Random().nextInt(strings.length);
+
+        // further implementation may be a daily notification that remember the user to see the
+        // daily advice
+        // additionally changing the textView by tapping some specific area of the page
         ((TextView) findViewById(R.id.advice_bulk)).setText(strings[randomNumber]);
     }
 }

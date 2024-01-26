@@ -117,8 +117,11 @@ public class GraphActivity extends AppCompatActivity {
         graphView.addSeries(lineSeries);
 
         // Configure custom labels on the x-axis
+        // converting the dateList in array of string data
         String[] dateLabels = dateList.toArray(new String[0]);
+        // setting the length of grid label x-axis
         graphView.getGridLabelRenderer().setNumHorizontalLabels(dateLabels.length);
+        // changing the actual format of the label
         graphView.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
             @Override
             public String formatLabel(double value, boolean isValueX) {
@@ -150,7 +153,9 @@ public class GraphActivity extends AppCompatActivity {
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(context.getResources().getColor(R.color.light_blue));
         paint.setStrokeWidth(8); // Adjust the line thickness
-        paint.setPathEffect(new DashPathEffect(new float[]{10, 10}, 0)); // Set the dashed line pattern
+        // Set the dashed line pattern 10 px line, 10 px space, 0 is the initial pahse
+        paint.setPathEffect(new DashPathEffect(new float[]{10, 10}, 0));
+        // assigning the paint object to the line series
         lineSeries.setCustomPaint(paint);
     }
 
